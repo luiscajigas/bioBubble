@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Mochi - Encuentra tu Sabor Perfecto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+    <!-- Banner Superior -->
+    <div class="header-banner">
+        ENVÍA A DONDE SEA EN EL PAÍS. PLAZA SETS DE 6/12/24
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">MOCHIMOCHI</div>
+        <nav>
+            <a href="index.html">INICIO</a>
+            <a href="productos.html">PRODUCTOS</a>
+            <a href="acerca.html">ACERCA</a>
+            <a href="chat.html">CHAT MOCHI</a>
+            <a href="productos.html" class="btn-comprar">COMPRAR AHORA</a>
+        </nav>
+    </header>
+
+    <!-- Chat Container -->
+    <div class="chat-page-container">
+        <div class="chat-wrapper">
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <div class="bot-avatar">🍡</div>
+                <div class="bot-info">
+                    <h2>Mochi Bot</h2>
+                    <p class="bot-status"><span class="status-dot"></span>En línea</p>
+                </div>
+            </div>
+
+            <!-- Chat Messages -->
+            <div class="chat-messages" id="chatMessages">
+                <!-- Los mensajes se cargarán dinámicamente -->
+            </div>
+
+            <!-- Chat Input -->
+            <div class="chat-input-container">
+                <input 
+                    type="text" 
+                    id="chatInput" 
+                    class="chat-input" 
+                    placeholder="Escribe tu mensaje..."
+                    autocomplete="off"
+                >
+                <button class="chat-send-btn" id="sendBtn">
+                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Quick Replies -->
+            <div class="quick-replies" id="quickReplies">
+                <!-- Los botones de respuesta rápida se cargarán aquí -->
+            </div>
+        </div>
+
+        <!-- Info Sidebar -->
+        <div class="chat-info-sidebar">
+            <div class="info-card">
+                <div class="info-icon">💬</div>
+                <h3>¿Cómo funciona?</h3>
+                <p>Responde algunas preguntas y te ayudaré a encontrar tu mochi perfecto basado en tus preferencias.</p>
+            </div>
+            
+            <div class="info-card">
+                <div class="info-icon">🎯</div>
+                <h3>Recomendaciones</h3>
+                <p>Te daré los mejores 3 sabores que coincidan con lo que buscas.</p>
+            </div>
+            
+            <div class="info-card">
+                <div class="info-icon">🛒</div>
+                <h3>Compra Fácil</h3>
+                <p>Puedes agregar tus mochis favoritos al carrito directamente desde aquí.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/chat.js"></script>
+</body>
+</html>

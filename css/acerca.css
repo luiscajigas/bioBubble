@@ -1,0 +1,551 @@
+/* ========================================
+   VARIABLES CSS
+   ======================================== */
+:root {
+    --cream: #F5F1E8;
+    --dark-teal: #2C5F6F;
+    --soft-pink: #FFB5C5;
+    --soft-green: #B8E6B8;
+    --soft-orange: #FFD4A3;
+    --text-dark: #2D3436;
+    --white: #FFFFFF;
+}
+
+/* ========================================
+   RESET & BASE
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--cream);
+    overflow-x: hidden;
+}
+
+/* ========================================
+   HEADER & NAVIGATION
+   ======================================== */
+.header-banner {
+    background-color: var(--dark-teal);
+    color: var(--white);
+    text-align: center;
+    padding: 10px;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+header {
+    background-color: var(--white);
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: var(--text-dark);
+}
+
+nav {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--dark-teal);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.btn-comprar {
+    background-color: var(--dark-teal);
+    color: var(--white);
+    padding: 0.7rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-comprar:hover {
+    background-color: #1e4451;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(44, 95, 111, 0.3);
+}
+
+/* ========================================
+   HERO ACERCA
+   ======================================== */
+.hero-acerca {
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #D4E9E7 0%, #E8DFD0 100%);
+    overflow: hidden;
+}
+
+.hero-acerca::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500"><circle cx="300" cy="250" r="200" fill="%23fff" opacity="0.1"/><circle cx="900" cy="150" r="150" fill="%23fff" opacity="0.1"/><circle cx="600" cy="400" r="180" fill="%23fff" opacity="0.1"/></svg>');
+    background-size: cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    letter-spacing: 1px;
+}
+
+/* ========================================
+   HISTORIA SECTION
+   ======================================== */
+.historia-section {
+    padding: 6rem 5%;
+    background-color: var(--white);
+}
+
+.historia-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.historia-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.historia-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.historia-image:hover img {
+    transform: scale(1.05);
+}
+
+.historia-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    color: var(--dark-teal);
+}
+
+.historia-text p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+/* ========================================
+   VALORES SECTION
+   ======================================== */
+.valores-section {
+    padding: 6rem 5%;
+    background-color: var(--cream);
+}
+
+.section-title {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 3rem;
+    color: var(--text-dark);
+}
+
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.valor-card {
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.valor-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.valor-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.valor-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    color: var(--dark-teal);
+}
+
+.valor-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* ========================================
+   FUNDADORES SECTION
+   ======================================== */
+.fundadores-section {
+    padding: 6rem 5%;
+    background-color: var(--white);
+}
+
+.fundadores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.fundador-card {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--cream);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.fundador-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.fundador-image-container {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--dark-teal);
+    box-shadow: 0 8px 25px rgba(44, 95, 111, 0.2);
+}
+
+.fundador-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.fundador-card:hover .fundador-image {
+    transform: scale(1.1);
+}
+
+.fundador-nombre {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    color: var(--dark-teal);
+}
+
+.fundador-cargo {
+    font-size: 0.9rem;
+    color: var(--dark-teal);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.fundador-bio {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #666;
+}
+
+/* ========================================
+   PROCESO SECTION
+   ======================================== */
+.proceso-section {
+    padding: 6rem 5%;
+    background-color: var(--cream);
+}
+
+.proceso-timeline {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+}
+
+.proceso-step {
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+}
+
+.proceso-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 600;
+    color: var(--dark-teal);
+    opacity: 0.2;
+    margin-bottom: 1rem;
+}
+
+.proceso-step h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    color: var(--dark-teal);
+}
+
+.proceso-step p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* ========================================
+   COMPROMISO SECTION
+   ======================================== */
+.compromiso-section {
+    padding: 6rem 5%;
+    background-color: var(--white);
+}
+
+.compromiso-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.compromiso-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    color: var(--dark-teal);
+}
+
+.compromiso-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+}
+
+.compromiso-content ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.compromiso-content ul li {
+    font-size: 1rem;
+    line-height: 2.5;
+    color: var(--text-dark);
+    padding-left: 2rem;
+    position: relative;
+}
+
+.compromiso-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: var(--dark-teal);
+    border-radius: 50%;
+}
+
+/* ========================================
+   CTA SECTION
+   ======================================== */
+.cta-section {
+    background-color: var(--dark-teal);
+    padding: 5rem 5%;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.cta-section p {
+    color: var(--white);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    letter-spacing: 0.5px;
+}
+
+.btn-cta {
+    background-color: var(--white);
+    color: var(--dark-teal);
+    padding: 1rem 3rem;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn-cta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .historia-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .historia-image img {
+        height: 300px;
+    }
+
+    .valores-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fundadores-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .proceso-timeline {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        gap: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-acerca {
+        height: 350px;
+    }
+}

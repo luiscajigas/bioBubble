@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mochimochi - Helado de Mochi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- Banner Superior -->
+    <div class="header-banner">
+        ENVÍA A DONDE SEA EN EL PAÍS. PLAZA SETS DE 6/12/24
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">MOCHIMOCHI</div>
+        <nav>
+            <a href="index.html">INICIO</a>
+            <a href="productos.html">PRODUCTOS</a>
+            <a href="acerca.html">ACERCA</a>
+            <a href="chat.html">CHAT MOCHI</a>
+            <a href="productos.html" class="btn-comprar">COMPRAR AHORA</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Helado de Mochi</h1>
+            <p>Experiencia única de sabor y textura</p>
+        </div>
+    </section>
+
+    <!-- Sabores Más Vendidos -->
+    <section class="sabores-section" id="productos-preview">
+        <h2 class="section-title">SABORES MÁS VENDIDOS</h2>
+        <div class="sabores-grid">
+            <div class="sabor-card">
+                <div class="mochi-image mochi-lychee"></div>
+                <p class="pack-label">3 Pack de Mochi</p>
+                <h3 class="sabor-name">LYCHEE</h3>
+                <button class="btn-comprar-mochi" onclick="window.location.href='productos.html'">COMPRAR AHORA</button>
+            </div>
+            <div class="sabor-card">
+                <div class="mochi-image mochi-green"></div>
+                <p class="pack-label">3 Pack de Mochi</p>
+                <h3 class="sabor-name">MANZANA VERDE</h3>
+                <button class="btn-comprar-mochi" onclick="window.location.href='productos.html'">COMPRAR AHORA</button>
+            </div>
+            <div class="sabor-card">
+                <div class="mochi-image mochi-orange"></div>
+                <p class="pack-label">3 Pack de Mochi</p>
+                <h3 class="sabor-name">MARACUYÁ</h3>
+                <button class="btn-comprar-mochi" onclick="window.location.href='productos.html'">COMPRAR AHORA</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section class="sobre-section" id="acerca">
+        <div class="sobre-overlay"></div>
+        <div class="sobre-content">
+            <h2>SOBRE NOSOTROS</h2>
+            <p>La idea de Mochi Mochi nació en el verano hace 7 años. Somos amantes de los helados de mochi. Durante la pandemia probé algunos helados en casa, pero no encontraba el sabor perfecto. Ahora es tu turno. Aquí está. Cada mordida es muy, pero que muy deliciosa. ¡Somos más Mochis! Y la historia continúa…</p>
+            <a href="acerca.html" class="btn-mas">SABER MÁS</a>
+        </div>
+    </section>
+
+    <!-- Perfectos Para Ti -->
+    <section class="perfectos-section">
+        <h2 class="section-title">PERFECTOS PARA TI</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🌾</div>
+                <h3 class="feature-title">Libres de Gluten</h3>
+                <p class="feature-text">Todos nuestros helados son libres de gluten sin el uso de harinas y sin el riesgo del cruce contaminado</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌱</div>
+                <h3 class="feature-title">Libres Vegana</h3>
+                <p class="feature-text">Tomamos solo de los mejores y orgánicos ingredientes y evitamos el uso de aditivos nocivos para tu salud</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3 class="feature-title">Hechos a la Medida</h3>
+                <p class="feature-text">Para conocer y seleccionar cuidadosamente los mejores de la selección de Mochi y personalizarlos a tu gusto</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section" id="contacto">
+        <p>¿Listo para probar la experiencia Mochi?</p>
+        <button class="btn-cta" onclick="window.location.href='productos.html'">COMPRAR AHORA</button>
+    </section>
+
+    <script src="js/index.js"></script>
+</body>
+</html>
