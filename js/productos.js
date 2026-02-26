@@ -1,451 +1,213 @@
 // ========================================
 // DATOS DE PRODUCTOS
-// ======================================== 
+// ========================================
 const productos = [
-    {
-        id: 1,
-        nombre: "LYCHEE",
-        categoria: "frutas",
-        color: "color-pink",
-        descripcion: "Delicioso helado de lychee envuelto en una suave masa de mochi. Un sabor exótico y refrescante que te transportará al paraíso tropical.",
-        icons: "🌸💗🍑",
-        image: "images/lychee.png"
-    },
-    {
-        id: 2,
-        nombre: "MANZANA VERDE",
-        categoria: "frutas",
-        color: "color-green",
-        descripcion: "Refrescante helado de manzana verde con un toque ácido y dulce, perfectamente equilibrado en una suave capa de mochi.",
-        icons: "🍏💚✨",
-        image: "images/manzana-verde.png"
-    },
-    {
-        id: 3,
-        nombre: "MARACUYÁ",
-        categoria: "frutas",
-        color: "color-orange",
-        descripcion: "Helado tropical de maracuyá con un sabor intenso y refrescante. La combinación perfecta entre dulce y ácido.",
-        icons: "🥭🧡🌟",
-        image: "images/maracuya.png"
-    },
-    {
-        id: 4,
-        nombre: "LIMÓN",
-        categoria: "frutas",
-        color: "color-vanilla",
-        descripcion: "Helado de limón natural con un toque cítrico refrescante. Perfecto para los amantes de los sabores intensos y naturales.",
-        icons: "🍋💛✨",
-        image: "images/limon.png"
-    },
-    {
-        id: 5,
-        nombre: "FRAMBUESA",
-        categoria: "frutas",
-        color: "color-pink",
-        descripcion: "Delicado helado de frambuesa con trozos de fruta natural. Un sabor dulce y ligeramente ácido que encanta.",
-        icons: "🍓💗🌸",
-        image: "images/frambuesa.png"
-    },
-    {
-        id: 6,
-        nombre: "FRUTOS ROJOS MARACUYÁ",
-        categoria: "frutas",
-        color: "color-purple",
-        descripcion: "Una explosión de sabores frutales combinando frutos rojos con el toque tropical del maracuyá.",
-        icons: "🍒💜🥭",
-        image: "images/frutos-rojos.png"
-    },
-    {
-        id: 7,
-        nombre: "CAFÉ NATILLA",
-        categoria: "especial",
-        color: "color-brown",
-        descripcion: "Helado de café colombiano premium mezclado con suave natilla. Para los verdaderos amantes del café.",
-        icons: "☕🤎✨",
-        image: "images/cafe-natilla.png"
-    },
-    {
-        id: 8,
-        nombre: "CHOCOLATE MENTA",
-        categoria: "chocolate",
-        color: "color-mint",
-        descripcion: "Refrescante combinación de chocolate premium con menta. Un clásico que nunca falla.",
-        icons: "🍫🌿💚",
-        image: "images/chocolate-menta.png"
-    },
-    {
-        id: 9,
-        nombre: "NUTELLA AVELLANA",
-        categoria: "chocolate",
-        color: "color-brown",
-        descripcion: "Cremoso helado de Nutella con trozos de avellana tostada. Irresistible para los amantes del chocolate.",
-        icons: "🍫🌰🤎",
-        image: "images/nutella.png"
-    },
-    {
-        id: 10,
-        nombre: "AREQUIPE",
-        categoria: "dulce",
-        color: "color-vanilla",
-        descripcion: "Tradicional helado de arequipe colombiano con ese sabor casero que te encanta. Dulce y cremoso.",
-        icons: "🍯💛✨",
-        image: "images/arequipe.png"
-    },
-    {
-        id: 11,
-        nombre: "OREO VAINILLA DE ARÁNDANOS",
-        categoria: "especial",
-        color: "color-vanilla",
-        descripcion: "Helado de vainilla con trozos de galleta Oreo y un toque de arándanos frescos.",
-        icons: "🍪💙✨",
-        image: "images/oreo-arandanos.png"
-    },
-    {
-        id: 12,
-        nombre: "BROWNIE CHOCOLATE",
-        categoria: "chocolate",
-        color: "color-brown",
-        descripcion: "Intenso helado de chocolate con trozos de brownie casero. El sueño de todo amante del chocolate.",
-        icons: "🍫🤎🍰",
-        image: "images/brownie.png"
-    },
-    {
-        id: 13,
-        nombre: "PISTACHOS",
-        categoria: "especial",
-        color: "color-green",
-        descripcion: "Elegante helado de pistacho con frutos secos naturales. Un sabor sofisticado y único.",
-        icons: "🌰💚✨",
-        image: "images/pistacho.png"
-    },
-    {
-        id: 14,
-        nombre: "FRESA CON GALLETA",
-        categoria: "frutas",
-        color: "color-pink",
-        descripcion: "Helado de fresa natural con trozos crujientes de galleta. Dulce, fresco y delicioso.",
-        icons: "🍓💗🍪",
-        image: "images/fresa-galleta.png"
-    },
-    {
-        id: 15,
-        nombre: "LUCUMA DE COCO",
-        categoria: "especial",
-        color: "color-orange",
-        descripcion: "Exótico helado de lúcuma peruana combinado con coco cremoso. Un viaje de sabores únicos.",
-        icons: "🥥🧡✨",
-        image: "images/lucuma-coco.png"
-    }
+    { id: 1, nombre: "PEPINO",              categoria: "hidratante",  color: "color-green",   descripcion: "Jabón refrescante de pepino con propiedades hidratantes y calmantes. Ideal para pieles sensibles y piel grasa. Ayuda a refrescar y tonificar la piel.",         image: "images/pepino.jpg" },
+    { id: 2, nombre: "AVENA",               categoria: "exfoliante",  color: "color-vanilla", descripcion: "Jabón exfoliante de avena natural que limpia profundamente mientras nutre tu piel. Perfecto para exfoliar suavemente y eliminar impurezas.",                     image: "images/avena.jpg" },
+    { id: 3, nombre: "SEMILLAS DE CHÍA",    categoria: "nutritivo",   color: "color-brown",   descripcion: "Jabón con semillas de chía ricas en omega-3. Proporciona nutrición profunda y ayuda a mantener la elasticidad de la piel.",                                     image: "images/semillas-chia.jpg" },
+    { id: 4, nombre: "ALOE VERA",           categoria: "hidratante",  color: "color-green",   descripcion: "Jabón de aloe vera con propiedades hidratantes y cicatrizantes. Ideal para calmar irritaciones y mantener la piel suave e hidratada.",                          image: "images/aloe-vera.jpg" },
+    { id: 5, nombre: "CARBÓN ACTIVADO",     categoria: "purificante", color: "color-dark",    descripcion: "Jabón purificante con carbón activado que elimina impurezas profundas y toxinas. Perfecto para piel grasa y con tendencia al acné.",                            image: "images/carbon-activado.jpg" },
+    { id: 6, nombre: "HIERBAS MEDICINALES", categoria: "terapeutico", color: "color-mint",    descripcion: "Jabón con mezcla de hierbas medicinales que calman y equilibran la piel. Propiedades antibacterianas y antiinflamatorias naturales.",                           image: "images/hierbas-medicinales.jpg" },
+    { id: 7, nombre: "FLORES SECAS",        categoria: "aromatico",   color: "color-purple",  descripcion: "Jabón aromático decorado con flores secas naturales. Suave fragancia que relaja y embellece tu ritual de cuidado personal.",                                    image: "images/flores-secas.jpg" },
+    { id: 8, nombre: "CAFÉ",                categoria: "exfoliante",  color: "color-brown",   descripcion: "Jabón exfoliante de café que remueve células muertas y estimula la circulación. Reduce la celulitis y da firmeza a la piel.",                                   image: "images/cafe.jpg" },
+    { id: 9, nombre: "MANZANILLA",          categoria: "calmante",    color: "color-yellow",  descripcion: "Jabón de manzanilla con propiedades calmantes y antiinflamatorias. Ideal para pieles sensibles y delicadas, especialmente piel de bebé.",                      image: "images/manzanilla.jpg" }
 ];
 
 // ========================================
-// CARRITO DE COMPRAS
-// ======================================== 
+// CARRITO
+// ========================================
 let carrito = [];
 
 // ========================================
 // RENDERIZAR PRODUCTOS
-// ======================================== 
+// ========================================
 function renderProductos(filtro = 'all') {
     const grid = document.getElementById('productosGrid');
     grid.innerHTML = '';
 
-    const productosFiltrados = filtro === 'all' 
-        ? productos 
+    const filtrados = filtro === 'all'
+        ? productos
         : productos.filter(p => p.categoria === filtro);
 
-    productosFiltrados.forEach(producto => {
+    filtrados.forEach(producto => {
         const card = document.createElement('div');
         card.className = 'producto-card';
         card.innerHTML = `
-            <div class="producto-image ${producto.color}"></div>
+            <img src="${producto.image}" alt="${producto.nombre}" class="producto-image">
             <h3 class="producto-name">${producto.nombre}</h3>
-            <div class="producto-icons">${producto.icons}</div>
         `;
-        
         card.addEventListener('click', () => abrirModal(producto));
         grid.appendChild(card);
     });
 }
 
 // ========================================
-// SISTEMA DE FILTROS
-// ======================================== 
+// FILTROS
+// ========================================
 function initFiltros() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    
-    filterButtons.forEach(btn => {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-            // Remover active de todos
-            filterButtons.forEach(b => b.classList.remove('active'));
-            // Agregar active al clickeado
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            
-            // Filtrar productos
-            const filtro = btn.getAttribute('data-filter');
-            renderProductos(filtro);
+            renderProductos(btn.getAttribute('data-filter'));
         });
     });
 }
 
 // ========================================
-// MODAL DE PRODUCTO
-// ======================================== 
+// MODAL PRODUCTO
+// ========================================
 function abrirModal(producto) {
-    const modal = document.getElementById('modalOverlay');
-    const modalImg = document.getElementById('modalImg');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDescription = document.getElementById('modalDescription');
-    const modalIcons = document.getElementById('modalIcons');
-    const quantity = document.getElementById('quantity');
+    const circle = document.getElementById('modalImgCircle');
+    circle.className = 'modal-img-circle';
+    circle.innerHTML = `<img src="${producto.image}" alt="${producto.nombre}">`;
 
-    // Establecer contenido del modal
-    modalImg.src = producto.image;
-    modalImg.alt = producto.nombre;
-    modalImg.className = producto.color;
-    modalTitle.textContent = producto.nombre;
-    modalDescription.textContent = producto.descripcion;
-    modalIcons.textContent = producto.icons;
-    quantity.value = 1;
+    document.getElementById('modalTitle').textContent = producto.nombre;
+    document.getElementById('modalDescription').textContent = producto.descripcion;
+    document.getElementById('modalIcons').textContent = producto.icons;
+    document.getElementById('quantity').value = 1;
+    document.getElementById('addToCartBtn').onclick = () =>
+        agregarAlCarrito(producto, parseInt(document.getElementById('quantity').value));
 
-    // Mostrar modal
-    modal.classList.add('active');
+    document.getElementById('modalOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
-
-    // Configurar botón de agregar al carrito
-    const addBtn = document.getElementById('addToCartBtn');
-    addBtn.onclick = () => agregarAlCarrito(producto, parseInt(quantity.value));
 }
 
 function cerrarModal() {
-    const modal = document.getElementById('modalOverlay');
-    modal.classList.remove('active');
+    document.getElementById('modalOverlay').classList.remove('active');
     document.body.style.overflow = 'auto';
 }
 
 // ========================================
-// CONTROLES DE CANTIDAD
-// ======================================== 
+// CONTROLES CANTIDAD
+// ========================================
 function initQuantityControls() {
-    const decreaseBtn = document.getElementById('decreaseQty');
-    const increaseBtn = document.getElementById('increaseQty');
-    const quantity = document.getElementById('quantity');
-
-    decreaseBtn.addEventListener('click', () => {
-        let value = parseInt(quantity.value);
-        if (value > 1) {
-            quantity.value = value - 1;
-        }
+    document.getElementById('decreaseQty').addEventListener('click', () => {
+        const q = document.getElementById('quantity');
+        if (parseInt(q.value) > 1) q.value = parseInt(q.value) - 1;
     });
-
-    increaseBtn.addEventListener('click', () => {
-        let value = parseInt(quantity.value);
-        quantity.value = value + 1;
+    document.getElementById('increaseQty').addEventListener('click', () => {
+        const q = document.getElementById('quantity');
+        q.value = parseInt(q.value) + 1;
     });
 }
 
 // ========================================
-// FUNCIONES DEL CARRITO
-// ======================================== 
+// CARRITO - FUNCIONES
+// ========================================
 function agregarAlCarrito(producto, cantidad) {
-    // Buscar si el producto ya está en el carrito
     const existente = carrito.find(item => item.id === producto.id);
-
     if (existente) {
         existente.cantidad += cantidad;
     } else {
-        carrito.push({
-            ...producto,
-            cantidad: cantidad
-        });
+        carrito.push({ ...producto, cantidad });
     }
-
     actualizarContadorCarrito();
-    mostrarNotificacion(`${producto.nombre} agregado al carrito`);
+    mostrarNotificacion(`${producto.nombre} agregado al carrito ✓`);
     cerrarModal();
 }
 
 function actualizarContadorCarrito() {
-    const cartCount = document.getElementById('cartCount');
-    const totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
-    cartCount.textContent = totalItems;
+    document.getElementById('cartCount').textContent =
+        carrito.reduce((s, i) => s + i.cantidad, 0);
 }
 
 function mostrarCarrito() {
-    const cartModal = document.getElementById('cartModalOverlay');
     const cartBody = document.getElementById('cartBody');
 
     if (carrito.length === 0) {
-        cartBody.innerHTML = '<div class="cart-empty">Tu carrito está vacío</div>';
+        cartBody.innerHTML = '<div class="cart-empty">🛒 Tu carrito está vacío</div>';
     } else {
-        cartBody.innerHTML = carrito.map((item, index) => `
+        cartBody.innerHTML = carrito.map((item, i) => `
             <div class="cart-item">
-                <div class="cart-item-image ${item.color}"></div>
+                <img src="${item.image}" alt="${item.nombre}" class="cart-item-circle">
                 <div class="cart-item-info">
                     <h3>${item.nombre}</h3>
                     <p class="cart-item-quantity">Cantidad: ${item.cantidad}</p>
                 </div>
-                <button class="cart-item-remove" onclick="eliminarDelCarrito(${index})">×</button>
+                <button class="cart-item-remove" onclick="eliminarDelCarrito(${i})">×</button>
             </div>
         `).join('');
     }
 
-    const totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
-    document.getElementById('totalItems').textContent = totalItems;
+    document.getElementById('totalItems').textContent =
+        carrito.reduce((s, i) => s + i.cantidad, 0);
 
-    cartModal.classList.add('active');
+    document.getElementById('cartModalOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
 function cerrarCarrito() {
-    const cartModal = document.getElementById('cartModalOverlay');
-    cartModal.classList.remove('active');
+    document.getElementById('cartModalOverlay').classList.remove('active');
     document.body.style.overflow = 'auto';
 }
 
 function eliminarDelCarrito(index) {
     carrito.splice(index, 1);
     actualizarContadorCarrito();
-    mostrarCarrito(); // Refrescar la vista del carrito
+    mostrarCarrito();
 }
 
 // ========================================
-// ENVIAR A WHATSAPP
-// ======================================== 
+// WHATSAPP
+// ========================================
 function enviarWhatsApp() {
     if (carrito.length === 0) {
         mostrarNotificacion('Tu carrito está vacío', 'error');
         return;
     }
 
-    // Número de WhatsApp (cambia este número por el tuyo)
-    const numeroWhatsApp = '573502046225'; // Formato: código país + número sin +
-    
-    // Construir el mensaje
-    let mensaje = '¡Hola! Me gustaría hacer el siguiente pedido de Mochis:\n\n';
-    
+    const numero = '573502046225'; // ← CAMBIA ESTE NÚMERO
+    let msg = '¡Hola! Me gustaría hacer el siguiente pedido de Jabones BioBubble:\n\n';
     carrito.forEach(item => {
-        mensaje += `🍡 *${item.nombre}*\n`;
-        mensaje += `   Cantidad: ${item.cantidad}\n`;
-        mensaje += `   ${item.icons}\n\n`;
+        msg += `*${item.nombre}*\n   Cantidad: ${item.cantidad}\n\n`;
     });
+    msg += `Total: ${carrito.reduce((s, i) => s + i.cantidad, 0)} items\n\n¡Gracias!`;
 
-    const totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
-    mensaje += `\n📦 Total de items: ${totalItems}\n\n`;
-    mensaje += '¡Gracias!';
-
-    // Codificar el mensaje para URL
-    const mensajeCodificado = encodeURIComponent(mensaje);
-    
-    // Crear el enlace de WhatsApp
-    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
-    
-    // Abrir WhatsApp en una nueva ventana
-    window.open(urlWhatsApp, '_blank');
+    window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
 // ========================================
 // NOTIFICACIONES
-// ======================================== 
-function mostrarNotificacion(mensaje, tipo = 'success') {
-    const notification = document.createElement('div');
-    notification.className = 'notification';
-    notification.textContent = mensaje;
-    notification.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 30px;
-        padding: 1rem 1.5rem;
-        background-color: ${tipo === 'success' ? 'var(--dark-teal)' : '#e74c3c'};
-        color: white;
-        border-radius: 4px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        z-index: 10000;
-        animation: slideInRight 0.3s ease-out;
-    `;
-
-    document.body.appendChild(notification);
-
+// ========================================
+function mostrarNotificacion(msg, tipo = 'success') {
+    const n = document.createElement('div');
+    n.className = 'notification';
+    n.textContent = msg;
+    n.style.backgroundColor = tipo === 'success' ? '#2C5F6F' : '#e74c3c';
+    document.body.appendChild(n);
     setTimeout(() => {
-        notification.style.animation = 'slideOutRight 0.3s ease-out';
-        setTimeout(() => notification.remove(), 300);
+        n.style.animation = 'slideOutRight 0.3s ease-out';
+        setTimeout(() => n.remove(), 300);
     }, 3000);
 }
 
 // ========================================
-// EVENT LISTENERS
-// ======================================== 
-document.addEventListener('DOMContentLoaded', function() {
-    // Renderizar productos iniciales
+// INIT
+// ========================================
+document.addEventListener('DOMContentLoaded', () => {
     renderProductos();
-
-    // Inicializar filtros
     initFiltros();
-
-    // Inicializar controles de cantidad
     initQuantityControls();
 
-    // Cerrar modal de producto
     document.getElementById('modalClose').addEventListener('click', cerrarModal);
-    document.getElementById('modalOverlay').addEventListener('click', (e) => {
-        if (e.target.id === 'modalOverlay') {
-            cerrarModal();
-        }
+    document.getElementById('modalOverlay').addEventListener('click', e => {
+        if (e.target.id === 'modalOverlay') cerrarModal();
     });
 
-    // Abrir carrito
-    document.getElementById('cartBtn').addEventListener('click', (e) => {
+    document.getElementById('cartBtn').addEventListener('click', e => {
         e.preventDefault();
         mostrarCarrito();
     });
 
-    // Cerrar modal de carrito
     document.getElementById('cartModalClose').addEventListener('click', cerrarCarrito);
-    document.getElementById('cartModalOverlay').addEventListener('click', (e) => {
-        if (e.target.id === 'cartModalOverlay') {
-            cerrarCarrito();
-        }
+    document.getElementById('cartModalOverlay').addEventListener('click', e => {
+        if (e.target.id === 'cartModalOverlay') cerrarCarrito();
     });
 
-    // Enviar a WhatsApp
     document.getElementById('sendWhatsApp').addEventListener('click', enviarWhatsApp);
-
-    // Mensaje de bienvenida
-    console.log('🍡 Página de productos Mochimochi cargada correctamente');
 });
 
-// Cerrar modales con tecla ESC
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        cerrarModal();
-        cerrarCarrito();
-    }
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { cerrarModal(); cerrarCarrito(); }
 });
-
-// Añadir animaciones CSS para notificaciones
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideInRight {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
-    @keyframes slideOutRight {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);

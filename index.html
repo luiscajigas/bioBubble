@@ -3,96 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mochimochi - Helado de Mochi</title>
+    <title>BioBubble Anari - Jabones Artesanales</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <!-- Banner Superior -->
     <div class="header-banner">
-        ENVÍA A DONDE SEA EN EL PAÍS. PLAZA SETS DE 6/12/24
+        ENVIOS A TODA LA CIUDAD DE PASTO
     </div>
 
     <!-- Header -->
     <header>
-        <div class="logo">MOCHIMOCHI</div>
+        <div class="logo">BIOBUBBLE-ANARI</div>
         <nav>
             <a href="index.html">INICIO</a>
             <a href="productos.html">PRODUCTOS</a>
             <a href="acerca.html">ACERCA</a>
-            <a href="chat.html">CHAT MOCHI</a>
+            <a href="chat.html">CHAT BUBBLE</a>
             <a href="productos.html" class="btn-comprar">COMPRAR AHORA</a>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="inicio">
+        <!-- Imagen de fondo del hero -->
+        <img src="images/hero-background.jpg" alt="Fondo Hero" class="hero-image">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Helado de Mochi</h1>
-            <p>Experiencia única de sabor y textura</p>
+            <h1></h1>
+            <p>Experiencia única y natural con ingredientes de calidad</p>
         </div>
     </section>
 
-    <!-- Sabores Más Vendidos -->
+    <!-- Jabones Más Vendidos -->
     <section class="sabores-section" id="productos-preview">
-        <h2 class="section-title">SABORES MÁS VENDIDOS</h2>
+        <h2 class="section-title">JABONES MÁS VENDIDOS</h2>
         <div class="sabores-grid">
             <div class="sabor-card">
-                <div class="mochi-image mochi-lychee"></div>
-                <p class="pack-label">3 Pack de Mochi</p>
-                <h3 class="sabor-name">LYCHEE</h3>
+                <img src="images/avena.jpg" alt="Jabón de Avena" class="mochi-image">
+                <p class="pack-label"></p>
+                <h3 class="sabor-name">AVENA</h3>
                 <button class="btn-comprar-mochi" onclick="window.location.href='productos.html'">COMPRAR AHORA</button>
             </div>
             <div class="sabor-card">
-                <div class="mochi-image mochi-green"></div>
-                <p class="pack-label">3 Pack de Mochi</p>
-                <h3 class="sabor-name">MANZANA VERDE</h3>
+                <img src="images/aloe-vera.jpg" alt="Jabón de Aloe Vera" class="mochi-image">
+                <p class="pack-label"></p>
+                <h3 class="sabor-name">ALOE VERA</h3>
                 <button class="btn-comprar-mochi" onclick="window.location.href='productos.html'">COMPRAR AHORA</button>
             </div>
             <div class="sabor-card">
-                <div class="mochi-image mochi-orange"></div>
-                <p class="pack-label">3 Pack de Mochi</p>
-                <h3 class="sabor-name">MARACUYÁ</h3>
+                <img src="images/carbon-activado.jpg" alt="Jabón de Carbón Activado" class="mochi-image">
+                <p class="pack-label"></p>
+                <h3 class="sabor-name">CARBÓN ACTIVADO</h3>
                 <button class="btn-comprar-mochi" onclick="window.location.href='productos.html'">COMPRAR AHORA</button>
             </div>
         </div>
     </section>
 
-    <!-- Sobre Nosotros -->
-    <section class="sobre-section" id="acerca">
-        <div class="sobre-overlay"></div>
-        <div class="sobre-content">
-            <h2>SOBRE NOSOTROS</h2>
-            <p>La idea de Mochi Mochi nació en el verano hace 7 años. Somos amantes de los helados de mochi. Durante la pandemia probé algunos helados en casa, pero no encontraba el sabor perfecto. Ahora es tu turno. Aquí está. Cada mordida es muy, pero que muy deliciosa. ¡Somos más Mochis! Y la historia continúa…</p>
-            <a href="acerca.html" class="btn-mas">SABER MÁS</a>
-        </div>
-    </section>
+<!-- Sobre Nosotros -->
+<section class="sobre-section" id="acerca">
+    <!-- Nueva imagen de fondo -->
+    <img src="images/sobre-nosotros.jpg" alt="Sobre Nosotros" class="sobre-background-image">
+    <div class="sobre-overlay"></div>
+    <div class="sobre-content">
+        <h2>SOBRE NOSOTROS</h2>
+        <p>BioBubble Anari nació con la misión de ofrecer productos naturales para el cuidado de la piel. Nuestros jabones artesanales están hechos con ingredientes de la más alta calidad, libres de químicos dañinos. Cada jabón es elaborado con amor y dedicación para brindarte una experiencia única de limpieza y cuidado facial.</p>
+        <a href="acerca.html" class="btn-mas">SABER MÁS</a>
+    </div>
+</section>
 
     <!-- Perfectos Para Ti -->
     <section class="perfectos-section">
         <h2 class="section-title">PERFECTOS PARA TI</h2>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">🌾</div>
-                <h3 class="feature-title">Libres de Gluten</h3>
-                <p class="feature-text">Todos nuestros helados son libres de gluten sin el uso de harinas y sin el riesgo del cruce contaminado</p>
+                <div class="feature-icon">🌿</div>
+                <h3 class="feature-title">100% Natural</h3>
+                <p class="feature-text">Todos nuestros jabones están hechos con ingredientes naturales, sin químicos agresivos ni conservantes artificiales</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🌱</div>
-                <h3 class="feature-title">Libres Vegana</h3>
-                <p class="feature-text">Tomamos solo de los mejores y orgánicos ingredientes y evitamos el uso de aditivos nocivos para tu salud</p>
+                <h3 class="feature-title">Artesanales</h3>
+                <p class="feature-text">Cada jabón es elaborado a mano con técnicas tradicionales y los mejores ingredientes orgánicos</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">✨</div>
-                <h3 class="feature-title">Hechos a la Medida</h3>
-                <p class="feature-text">Para conocer y seleccionar cuidadosamente los mejores de la selección de Mochi y personalizarlos a tu gusto</p>
+                <h3 class="feature-title">Para Todo Tipo de Piel</h3>
+                <p class="feature-text">Tenemos opciones especiales para cada tipo de piel: sensible, grasa, seca o mixta</p>
             </div>
         </div>
     </section>
 
     <!-- CTA Final -->
     <section class="cta-section" id="contacto">
-        <p>¿Listo para probar la experiencia Mochi?</p>
+        <p>¿Listo para cuidar tu piel de forma natural?</p>
         <button class="btn-cta" onclick="window.location.href='productos.html'">COMPRAR AHORA</button>
     </section>
 

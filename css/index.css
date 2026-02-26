@@ -114,24 +114,40 @@ nav a:hover::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #D4E9E7 0%, #E8DFD0 100%);
     overflow: hidden;
+    /* Degradado de respaldo si no hay imagen */
+    background: linear-gradient(135deg, #D4E9E7 0%, #E8DFD0 100%);
 }
 
-.hero-content {
-    text-align: center;
-    z-index: 2;
-    padding: 2rem;
-    animation: fadeInUp 1s ease-out;
-}
-
+/* Imagen de fondo del hero */
 .hero-image {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.3;
+    z-index: 1;
     animation: slowZoom 20s infinite alternate;
+}
+
+/* Overlay oscuro para mejorar legibilidad del texto */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Ajusta la opacidad aquí (0.3 = 30% oscuro) */
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    text-align: center;
+    z-index: 3; /* Por encima de la imagen y el overlay */
+    padding: 2rem;
+    animation: fadeInUp 1s ease-out;
 }
 
 .hero h1 {
@@ -139,19 +155,22 @@ nav a:hover::after {
     font-size: 4rem;
     font-weight: 300;
     margin-bottom: 1rem;
-    color: var(--text-dark);
+    color: var(--white); /* Cambiado a blanco para mejor contraste */
     letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Sombra para mejorar legibilidad */
 }
 
 .hero p {
     font-size: 1.1rem;
-    color: var(--text-dark);
+    color: var(--white); /* Cambiado a blanco */
     margin-bottom: 2rem;
+    margin-top: 3rem; /* ← AGREGADO: Baja el texto */
     letter-spacing: 0.5px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* ========================================
-   SABORES SECTION
+   SABORES SECTION (JABONES)
    ======================================== */
 .sabores-section {
     padding: 5rem 5%;
@@ -198,33 +217,34 @@ nav a:hover::after {
     transform: translateY(-10px);
 }
 
+/* ACTUALIZADO: Para imágenes reales */
 .mochi-image {
     width: 200px;
     height: 200px;
     margin: 0 auto 1.5rem;
-    background-size: cover;
-    background-position: center;
     border-radius: 50%;
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
     transition: transform 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 4px solid var(--white);
 }
 
 .sabor-card:hover .mochi-image {
     transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
+/* Clases de respaldo para gradientes (si no hay imagen) */
 .mochi-lychee {
     background: linear-gradient(135deg, #FFE5EC 0%, #FFC1D5 100%);
-    box-shadow: 0 10px 30px rgba(255, 181, 197, 0.3);
 }
 
 .mochi-green {
     background: linear-gradient(135deg, #E8F5E8 0%, #B8E6B8 100%);
-    box-shadow: 0 10px 30px rgba(184, 230, 184, 0.3);
 }
 
 .mochi-orange {
     background: linear-gradient(135deg, #FFF0DC 0%, #FFD4A3 100%);
-    box-shadow: 0 10px 30px rgba(255, 212, 163, 0.3);
 }
 
 .pack-label {
@@ -273,22 +293,36 @@ nav a:hover::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500"><rect fill="%23D4E9E7" width="1200" height="500"/></svg>');
-    background-size: cover;
     overflow: hidden;
+    /* Degradado de respaldo si no hay imagen */
+    background: linear-gradient(135deg, #D4E9E7 0%, #E8DFD0 100%);
+}
+
+/* Imagen de fondo para sobre nosotros */
+.sobre-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
 }
 
 .sobre-overlay {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(212, 233, 231, 0.85);
+    background: rgba(212, 233, 231, 0.85); /* Puedes ajustar la opacidad */
     backdrop-filter: blur(5px);
+    z-index: 2;
 }
 
 .sobre-content {
     position: relative;
-    z-index: 2;
+    z-index: 3; /* Por encima de la imagen y overlay */
     max-width: 700px;
     text-align: center;
     padding: 3rem;
@@ -512,5 +546,10 @@ nav a:hover::after {
 
     .hero {
         height: 400px;
+    }
+    
+    .mochi-image {
+        width: 150px;
+        height: 150px;
     }
 }

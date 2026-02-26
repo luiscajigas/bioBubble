@@ -3,133 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos - Mochimochi</title>
+    <title>Productos - BioBubble</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/productos.css">
 </head>
 <body>
-    <!-- Banner Superior -->
-    <div class="header-banner">
-        ENVÍA A DONDE SEA EN EL PAÍS. PLAZA SETS DE 6/12/24
-    </div>
+
+    <!-- Banner -->
+    <div class="header-banner">ENVIOS A TODA LA CIUDAD DE PASTO</div>
 
     <!-- Header -->
     <header>
-        <div class="logo">MOCHIMOCHI</div>
+        <div class="logo">BIOBUBBLE</div>
         <nav>
             <a href="index.html">INICIO</a>
             <a href="productos.html">PRODUCTOS</a>
             <a href="acerca.html">ACERCA</a>
-            <a href="chat.html">CHAT MOCHI</a>
+            <a href="chat.html">CHAT BUBBLE</a>
             <a href="#" class="btn-comprar" id="cartBtn">
-                COMPRAR AHORA <span class="cart-count" id="cartCount">0</span>
+                🛒 CARRITO <span class="cart-count" id="cartCount">0</span>
             </a>
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero-productos">
         <div class="hero-content">
-            <h1>SABORES MOCHI MOCHI</h1>
+            <h1>JABONES ARTESANALES</h1>
         </div>
     </section>
 
-    <!-- Información Mochi -->
+    <!-- Info -->
     <section class="info-mochi">
         <div class="info-container">
             <div class="mochi-diagram">
-                <img src="images/mochi-diagram.png" alt="Mochi Helado" class="diagram-img">
-                <p class="diagram-label">Mochi Helado</p>
+                <img src="images/jabon-info.jpg" alt="Jabón Natural" class="diagram-img">
+                <p class="diagram-label"></p>
             </div>
             <div class="info-text">
-                <h2>¿QUÉ ES UN MOCHI?</h2>
-                <p>Helado cubierto con una capa helada sobre una bola de helado crema</p>
+                <h2>¿POR QUÉ JABONES ARTESANALES?</h2>
+                <p>Nuestros jabones están hechos a mano con ingredientes 100% naturales</p>
                 <ul>
-                    <li>Ligeramente dulce, suavemente a la masticable en una capa</li>
-                    <li>¿Qué significa mochi? Algo que es pegajoso, para clave masticar...</li>
-                    <li>El mejor juego de sabor relleno es siempre la historia y su diseño masticable. Solo funciona para masticar lenta y no golpearte...</li>
+                    <li>Libres de químicos agresivos y conservantes artificiales</li>
+                    <li>Elaborados con aceites vegetales y extractos naturales</li>
+                    <li>Cada jabón es único, hecho con amor y dedicación artesanal</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Filtros de Sabores -->
+    <!-- Filtros -->
     <section class="sabores-filter">
-        <h2 class="section-title">SABORES DE SUS DESEOS</h2>
+        <h2 class="section-title">CATEGORÍAS DE JABONES</h2>
         <div class="filter-buttons">
             <button class="filter-btn active" data-filter="all">Ver todo</button>
-            <button class="filter-btn" data-filter="frutas">Frutas</button>
-            <button class="filter-btn" data-filter="dulce">Dulce de leche</button>
-            <button class="filter-btn" data-filter="especial">Especial</button>
-            <button class="filter-btn" data-filter="chocolate">Chocolate</button>
+            <button class="filter-btn" data-filter="hidratante">Hidratante</button>
+            <button class="filter-btn" data-filter="exfoliante">Exfoliante</button>
+            <button class="filter-btn" data-filter="purificante">Purificante</button>
+            <button class="filter-btn" data-filter="calmante">Calmante</button>
+            <button class="filter-btn" data-filter="nutritivo">Nutritivo</button>
+            <button class="filter-btn" data-filter="aromatico">Aromático</button>
+            <button class="filter-btn" data-filter="terapeutico">Terapéutico</button>
         </div>
     </section>
 
-    <!-- Grid de Productos -->
+    <!-- Grid Productos -->
     <section class="productos-grid-section">
-        <div class="productos-grid" id="productosGrid">
-            <!-- Los productos se cargarán dinámicamente desde JS -->
-        </div>
+        <div class="productos-grid" id="productosGrid"></div>
     </section>
 
-    <!-- Modal de Producto -->
+    <!-- Modal Producto -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-content">
             <button class="modal-close" id="modalClose">&times;</button>
             <div class="modal-body">
                 <div class="modal-image">
-                    <img src="" alt="" id="modalImg">
+                    <div class="modal-img-circle" id="modalImgCircle"></div>
                 </div>
                 <div class="modal-info">
                     <h2 id="modalTitle"></h2>
                     <p class="modal-description" id="modalDescription"></p>
-                    
                     <div class="modal-features">
-                        <div class="feature-item">
-                            <span class="icon">🌾</span>
-                            <span>Sin Gluten</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="icon">❄️</span>
-                            <span>Helado Premium</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="icon">✨</span>
-                            <span>Hecho a Mano</span>
-                        </div>
+                        <div class="feature-item"><span class="icon">🌿</span><span>100% Natural</span></div>
+                        <div class="feature-item"><span class="icon">🧼</span><span>Artesanal</span></div>
+                        <div class="feature-item"><span class="icon">✨</span><span>Sin Químicos</span></div>
                     </div>
-
-                    <div class="modal-icons">
-                        <span id="modalIcons"></span>
-                    </div>
-
+                    <div class="modal-icons"><span id="modalIcons"></span></div>
                     <div class="quantity-selector">
                         <label>Cantidad:</label>
                         <div class="quantity-controls">
-                            <button class="qty-btn" id="decreaseQty">-</button>
+                            <button class="qty-btn" id="decreaseQty">−</button>
                             <input type="number" id="quantity" value="1" min="1" readonly>
                             <button class="qty-btn" id="increaseQty">+</button>
                         </div>
                     </div>
-
-                    <button class="btn-add-cart" id="addToCartBtn">
-                        Agregar al Carrito
-                    </button>
+                    <button class="btn-add-cart" id="addToCartBtn">Agregar al Carrito</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal del Carrito -->
+    <!-- Modal Carrito -->
     <div class="cart-modal-overlay" id="cartModalOverlay">
         <div class="cart-modal-content">
             <div class="cart-header">
                 <h2>Carrito de Compras</h2>
                 <button class="modal-close" id="cartModalClose">&times;</button>
             </div>
-            <div class="cart-body" id="cartBody">
-                <!-- Los items del carrito se cargarán aquí -->
-            </div>
+            <div class="cart-body" id="cartBody"></div>
             <div class="cart-footer">
                 <div class="cart-total">
                     <span>Total de items:</span>
