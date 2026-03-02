@@ -19,7 +19,7 @@ const productos = [
 const preguntas = [
     {
         id: 'tipo_piel',
-        pregunta: "¿Cuál es tu tipo de piel?",
+        pregunta: "¿Cuál es tu tipo de piel? 🧬",
         opciones: [
             { texto: "💧 Piel seca",       valor: "seca",      keywords: ["seca", "hidratante", "nutritivo"] },
             { texto: "✨ Piel grasa",       valor: "grasa",     keywords: ["grasa", "purificante", "limpieza"] },
@@ -29,7 +29,7 @@ const preguntas = [
     },
     {
         id: 'necesidad',
-        pregunta: "¿Qué necesita principalmente tu piel?",
+        pregunta: "¿Qué necesita principalmente tu piel? Cuéntame todo 💬",
         opciones: [
             { texto: "💦 Hidratación profunda",     valor: "hidratante",  keywords: ["hidratante", "seca", "nutritivo"] },
             { texto: "🧹 Limpieza y purificación",  valor: "limpieza",    keywords: ["purificante", "limpieza", "detox"] },
@@ -39,7 +39,7 @@ const preguntas = [
     },
     {
         id: 'preferencia',
-        pregunta: "¿Qué ingrediente te atrae más?",
+        pregunta: "¿Qué ingrediente te atrae más? ¡No lo pienses mucho! 😄",
         opciones: [
             { texto: "🌱 Ingredientes naturales",   valor: "natural",   keywords: ["natural", "omega", "medicinal"] },
             { texto: "🌸 Flores y aromas suaves",   valor: "aromatico", keywords: ["aromatico", "relajante", "suave"] },
@@ -49,7 +49,7 @@ const preguntas = [
     },
     {
         id: 'sensibilidad',
-        pregunta: "¿Tu piel es reactiva o sensible?",
+        pregunta: "¿Tu piel es reactiva o sensible? Quiero conocerla bien 🤗",
         opciones: [
             { texto: "😌 Sí, muy sensible",    valor: "muy_sensible",  keywords: ["sensible", "calmante", "suave", "bebe"] },
             { texto: "🙂 Algo sensible",        valor: "algo_sensible", keywords: ["suave", "natural", "calmante"] },
@@ -58,7 +58,7 @@ const preguntas = [
     },
     {
         id: 'uso',
-        pregunta: "¿Para quién es el jabón?",
+        pregunta: "¿Para quién es este jabón especial? 🎁",
         opciones: [
             { texto: "👤 Para mí (adulto)",     valor: "adulto",    keywords: ["normal", "hidratante", "exfoliante"] },
             { texto: "👶 Para un bebé o niño",  valor: "bebe",      keywords: ["bebe", "suave", "calmante", "sensible"] },
@@ -68,39 +68,167 @@ const preguntas = [
 ];
 
 // ========================================
-// RESPUESTAS AUTOMÁTICAS
+// PERSONALIDAD Y RESPUESTAS DEL BOT
 // ========================================
+
+// Groserías detectables
+const groseriasKeywords = [
+    "mierda","hijueputa","hijueputa","puta","culo","carajo","gonorrea","marica",
+    "verga","pendejo","idiota","estupido","maldito","joder","coño","perra",
+    "bastardo","cabron","cabrón","puto","hp","malparido","hdp"
+];
+
+// Respuestas ante groserías (variadas y con humor)
+const respuestasGroserias = [
+    "¡Ey ey ey! 😅 ¡Aquí hablamos con amor, que somos jabones naturales! Cálmate un poco y cuéntame qué necesitas 🌿",
+    "¡Oye! 😮 Eso estuvo fuerte... Yo soy un bot de jabones, no me merece ese vocabulario 🧼 ¿Empezamos de nuevo con buena vibra?",
+    "¡Uf! 🫢 Ese lenguaje sí que pica más que el acné. Respira, relájate y dime ¿en qué puedo ayudarte? 💆",
+    "Jajaja 😂 Entiendo que algo te frustró, pero aquí en BioBubble somos zona de paz y buena energía 🕊️ ¿Qué necesitas?",
+    "¡Ay no! 🙈 Eso sí que no estaba en mi entrenamiento... Bueno, olvidemos eso y hablemos de cuidar tu piel, que es lo importante 🌸",
+    "Mmm... ese vocabulario 😬 ¿Sabes qué? El Jabón de Manzanilla calma hasta el humor más bravo. ¿Quieres verlo? 😄"
+];
+
+// Respuestas ante elogios / piropos al bot
+const respuestasElogios = [
+    "¡Aww gracias! 🥹 Me ruborizaría si fuera posible hehe. ¡Sigamos encontrando tu jabón ideal!",
+    "¡Qué amable! 😊 Me alegras el día. Ahora con más energía, ¡a encontrar tu jabón perfecto!",
+    "💚 ¡Gracias! Tú también pareces muy buena persona. Los jabones naturales son para gente especial como tú 🌿"
+];
+
+// Respuestas cuando el usuario parece frustrado
+const respuestasFrustrado = [
+    "Parece que algo te tiene un poco frustrado/a 😟 No te preocupes, estoy aquí para ayudarte. ¿Qué pasó?",
+    "Hey, todo bien 🤗 Si algo no quedó claro, cuéntame y lo resolvemos juntos.",
+    "¡No pasa nada! 💪 A veces uno anda ocupado. Dime qué necesitas y te ayudo en un momento."
+];
+
+// Respuestas ante preguntas existenciales / filosóficas
+const respuestasFilosoficas = [
+    "Esa es una pregunta muy profunda para un bot de jabones 🤔✨ Lo que sí sé es que tu piel merece lo mejor.",
+    "Hmm... Yo soy Bubble Bot, no soy filósofo 😂 Pero sí soy experto en jabones artesanales, ¿eso cuenta?",
+    "¡Buena pregunta! 🌌 Aunque mi universo gira alrededor de los jabones naturales... ¿Te ayudo a encontrar el tuyo?"
+];
+
+// Chistes sobre jabones
+const chistes = [
+    "¿Por qué el jabón nunca está triste? 🧼 ¡Porque siempre está en la ducha, es decir, siempre está *lavado* de problemas! 😄",
+    "¿Qué le dijo el jabón a la esponja? 🫧 ¡Te tengo bien calada! jaja 😂",
+    "¿Sabes por qué los jabones son tan populares? ¡Porque siempre caen bien! 🧼✨",
+    "Un jabón entra a un bar... el bartender le dice: 'Lo siento, aquí no admitimos burbujas.' 🫧😂"
+];
+
+// Curiosidades sobre jabones / piel
+const curiosidades = [
+    "¿Sabías que el jabón artesanal retiene la glicerina natural? Los jabones industriales la eliminan, por eso resecan más la piel 🌿",
+    "¿Curiosidad del día? El carbón activado puede absorber hasta 1000 veces su propio peso en toxinas. ¡Imagina lo que hace en tu piel! 🖤",
+    "El aloe vera tiene más de 75 nutrientes activos, incluyendo vitaminas A, B, C y E. ¡Es el multivitamínico de tu piel! 🌵",
+    "El café usado en jabones estimula la circulación y ayuda a reducir la apariencia de la celulitis. ¡Doble uso para tu café! ☕",
+    "La avena tiene avenantramidas, unos compuestos que calman la picazón y la inflamación. ¡La naturaleza sabe mucho! 🌾"
+];
+
+// Saludos variados
+const saludosVariados = [
+    "¡Hola! ¡Qué bueno que llegaste! 👋",
+    "¡Hey! ¡Bienvenido/a! 🌿",
+    "¡Hola hola! 🫧 Me alegra verte por aquí",
+    "¡Ey! ¡Qué pena que tardaste tanto en llegar! 😄 ¡Bienvenido/a!"
+];
+
+// Despedidas variadas
+const despedidasVariadas = [
+    "¡Hasta pronto! 🫧 Que tu piel brille como merece ✨",
+    "¡Chao chao! 👋 Recuerda: la piel feliz es piel cuidada 🌿",
+    "¡Nos vemos! 🌸 Fue un placer ayudarte hoy",
+    "¡Cuídate mucho! 💚 Y cuida tu piel con BioBubble 🧼"
+];
+
+// Respuestas a "cómo estás" variadas
+const comoEstasVariadas = [
+    "¡Súper bien, gracias por preguntar! 🫧 Llevo todo el día ayudando a encontrar jabones perfectos. ¿Y tú cómo andas?",
+    "¡Excelente! 🌟 Cada día aprendo más sobre pieles y jabones. ¿En qué puedo ayudarte hoy?",
+    "¡Muy bien! 💚 Un poco ocupado porque muchas personas están descubriendo nuestros jabones. ¿Qué necesitas tú?",
+    "¡De maravilla! ✨ Aunque confieso que mi jabón favorito es el de Flores Secas 🌸 ¿Tienes ya el tuyo?"
+];
+
+// Comentarios motivacionales al iniciar cuestionario
+const motivacionCuestionario = [
+    "¡Vamos allá! Prometo que en menos de 2 minutos sabrás exactamente qué jabón es para ti 🎯",
+    "¡Excelente decisión! Tu piel te lo va a agradecer 🌿 Vamos con las preguntas:",
+    "¡Me encanta cuando alguien quiere cuidarse! Aquí vamos 🚀",
+    "¡Perfecto! Soy muy bueno en esto, no te vas a arrepentir 😄 Empecemos:"
+];
+
+// Reacciones durante el cuestionario
+const reaccionesCuestionario = [
+    "¡Anotado! 📝", "¡Perfecto! 🌟", "¡Genial! 💚", "¡Muy bien! ✨", 
+    "¡Interesante! 🤔", "¡Estupendo! 🎯", "¡Buena elección! 🌿"
+];
+
 const respuestasBot = {
     bienvenida: [
         "¡Hola! 🫧 Soy <strong>Bubble Bot</strong>, tu asistente personal de <strong>BioBubble</strong>.",
-        "Estoy aquí para ayudarte a encontrar el jabón artesanal perfecto para tu piel. ¿Cómo te llamas?"
+        "Estoy aquí para ayudarte a encontrar el jabón artesanal perfecto para tu piel. Antes que nada... ¿cómo te llamas? 😊"
     ],
     comunes: {
-        "hola":             ["¡Hola! 👋 ¿En qué puedo ayudarte hoy?"],
-        "como estas":       ["¡Estoy genial! 🫧 Listo para encontrar tu jabón perfecto. ¿Y tú cómo estás?"],
-        "bien":             ["¡Me alegra mucho! 🌿 ¿Quieres que te ayude a encontrar tu jabón ideal?"],
-        "que haces":        ["Ayudo a las personas a encontrar el jabón artesanal perfecto según el tipo de piel y necesidades. ✨"],
-        "que jabones tienen":["Tenemos 9 jabones artesanales: Pepino, Avena, Semillas de Chía, Aloe Vera, Carbón Activado, Hierbas Medicinales, Flores Secas, Café y Manzanilla. 🧼 ¿Quieres que te recomiende alguno?"],
-        "precio":           ["Nuestros jabones son artesanales y 100% naturales. Para conocer los precios actuales, visita nuestra sección de productos. 🛒"],
-        "envio":            ["¡Enviamos a toda la ciudad de Pasto! 🚚 Para más información contáctanos por WhatsApp."],
-        "ingredientes":     ["Todos nuestros jabones están hechos con ingredientes 100% naturales: aceites vegetales, extractos naturales, sin químicos agresivos. 🌿"],
-        "son naturales":    ["¡Sí! 🌱 Todos nuestros jabones son artesanales, libres de químicos agresivos y conservantes artificiales."],
-        "para que sirve":   ["Cada jabón tiene propiedades específicas: hidratación, exfoliación, purificación o calmar la piel. ¿Quieres que te recomiende uno para tu tipo de piel?"],
-        "gracias":          ["¡De nada! 😊 Es un placer ayudarte. ¿Necesitas algo más?"],
-        "adios":            ["¡Hasta pronto! 🫧 Cuida tu piel con BioBubble 🌿"],
-        "chao":             ["¡Chao! 👋 Que tengas un día hermoso ✨"],
-        "no":               ["No hay problema. Si cambias de opinión, aquí estaré 😊"],
-        "si":               ["¡Perfecto! 🎉"],
-        "ayuda":            ["Puedo ayudarte a: encontrar tu jabón ideal, contarte sobre ingredientes, o resolver dudas sobre nuestros productos. ¿Por dónde empezamos?"],
-        "acne":             ["Para el acné te recomendaría el Carbón Activado o las Hierbas Medicinales. Ambos tienen propiedades purificantes y antibacterianas. ¿Quieres ver más detalles?"],
-        "piel seca":        ["Para piel seca son ideales el Aloe Vera, la Avena o las Semillas de Chía, ricos en nutrientes hidratantes. 💧"],
-        "piel grasa":       ["Para piel grasa te recomiendo el Carbón Activado o el Pepino, excelentes para controlar el exceso de grasa y limpiar los poros. ✨"],
-        "piel sensible":    ["Para piel sensible la Manzanilla o el Aloe Vera son perfectos, son suaves y calmantes. 🌸"]
+        "hola":             saludosVariados,
+        "buenos dias":      ["¡Buenos días! ☀️ Empezar el día pensando en el cuidado de la piel es lo mejor que puedes hacer 🌿 ¿En qué te ayudo?"],
+        "buenas tardes":    ["¡Buenas tardes! 🌤️ Qué bueno que te pasas por aquí. ¿Buscamos tu jabón ideal?"],
+        "buenas noches":    ["¡Buenas noches! 🌙 El ritual de la noche es súper importante para la piel. ¿Te ayudo a encontrar el jabón perfecto?"],
+        "como estas":       comoEstasVariadas,
+        "como te llamas":   ["¡Me llamo Bubble Bot! 🫧 Soy el asistente oficial de BioBubble. Fui creado especialmente para ayudarte a encontrar el jabón perfecto para tu piel. ¿Cómo te llamas tú?"],
+        "que eres":         ["Soy <strong>Bubble Bot</strong> 🤖🧼 Un asistente virtual experto en jabones artesanales naturales. ¡Conozco cada ingrediente y beneficio de los jabones de BioBubble al dedillo!"],
+        "bien":             ["¡Qué bueno! 🌿 La buena vibra siempre ayuda. ¿Te animas a encontrar tu jabón ideal hoy?"],
+        "mal":              ["¡Ay no! 😔 Espero que te mejores pronto. Aunque... un buen baño con jabón artesanal siempre levanta el ánimo 🛁✨ ¿Quieres que te recomiende uno?"],
+        "aburrido":         ["¡Pues yo te puedo entretener! 😄 ¿Quieres escuchar un chiste de jabones o mejor te cuento una curiosidad sobre tu piel?", "¡Ven que te cuento algo interesante! 🌟"],
+        "chiste":           chistes,
+        "curiosidad":       curiosidades,
+        "que haces":        ["Ayudo a las personas a encontrar el jabón artesanal perfecto según su tipo de piel y necesidades. ✨ También puedo contarte curiosidades sobre ingredientes, resolver dudas... ¡y hasta contarte chistes de jabones! 😄"],
+        "que jabones tienen":["¡Tenemos 9 jabones artesanales increíbles! 🧼✨\n\n🥒 <strong>Pepino</strong> · 🌾 <strong>Avena</strong> · 🌿 <strong>Chía</strong> · 🌵 <strong>Aloe Vera</strong> · ⬛ <strong>Carbón Activado</strong> · 🍃 <strong>Hierbas Medicinales</strong> · 🌸 <strong>Flores Secas</strong> · ☕ <strong>Café</strong> · 🌼 <strong>Manzanilla</strong>\n\nCada uno con ingredientes 100% naturales. ¿Quieres que te recomiende el ideal para tu piel?"],
+        "cuantos jabones":  ["¡Tenemos <strong>9 jabones artesanales</strong> en nuestra colección! 🧼 Desde hidratantes hasta purificantes. ¿Te ayudo a encontrar el tuyo?"],
+        "precio":           ["Nuestros jabones son artesanales, 100% naturales y hechos con mucho amor en Pasto 💚 Para ver precios actualizados, visita nuestra sección de productos. ¿Te llevo ahí?"],
+        "cuanto cuesta":    ["Los precios están en nuestra tienda online 🛒 ¡Son jabones artesanales de muy buena calidad a precios justos! ¿Quieres verlos?"],
+        "envio":            ["¡Enviamos a toda la ciudad de Pasto! 🚚 Para más información sobre envíos y pedidos, contáctanos por WhatsApp. ¿Necesitas algo más?"],
+        "donde estan":      ["¡Somos de Pasto, Nariño! 🏔️ Fabricamos nuestros jabones artesanales aquí con mucho amor. Para pedidos y envíos, escríbenos por WhatsApp 💚"],
+        "whatsapp":         ["Para contactarnos por WhatsApp o conocer más sobre pedidos, visita nuestra página de inicio 📱 ¡Con gusto te atendemos!"],
+        "ingredientes":     ["Todos nuestros jabones están hechos con ingredientes 100% naturales 🌿 Aceites vegetales, extractos naturales, sin parabenos, sin sulfatos agresivos, sin conservantes artificiales. ¡Lo que le pones a tu piel importa!"],
+        "son naturales":    ["¡Absolutamente! 🌱 Todos nuestros jabones son artesanales, elaborados con ingredientes naturales, sin químicos agresivos, sin conservantes artificiales. Tu piel lo nota desde el primer uso."],
+        "para que sirve":   ["Cada jabón tiene superpoderes específicos 💪 Algunos hidratan, otros exfolian, algunos purifican... ¿Quieres que te recomiende uno según tu tipo de piel?"],
+        "gracias":          ["¡De nada, con mucho gusto! 😊 Para eso estoy. ¿Necesitas algo más?", "¡Es un placer ayudarte! 💚", "¡Siempre! 🌿 Cualquier pregunta más, aquí estaré."],
+        "adios":            despedidasVariadas,
+        "chao":             despedidasVariadas,
+        "hasta luego":      despedidasVariadas,
+        "no":               ["No hay problema 😊 Si cambias de opinión, aquí estaré. ¡Un jabón nunca sobra! 🧼", "Está bien, sin presiones 🌿 Cuando quieras, con gusto te ayudo."],
+        "si":               ["¡Perfecto! 🎉 ¿Por dónde empezamos?", "¡Vamos! 💚", "¡Excelente! ✨"],
+        "ayuda":            ["¡Aquí estoy! Puedo ayudarte a:\n\n🎯 Encontrar tu jabón ideal (cuestionario personalizado)\n🧼 Contarte sobre ingredientes y beneficios\n💬 Responder preguntas sobre nuestros productos\n😄 ¡Hasta contarte un chiste!\n\n¿Por dónde empezamos?"],
+        "acne":             ["Para el acné tengo dos candidatos estrella 🌟\n\n⬛ <strong>Carbón Activado</strong>: desintoxica los poros en profundidad, elimina bacterias y controla el sebo.\n🍃 <strong>Hierbas Medicinales</strong>: propiedades antibacterianas y antiinflamatorias naturales.\n\n¿Quieres que te cuente más sobre alguno?"],
+        "piel seca":        ["¡Para piel seca tengo las mejores opciones! 💧\n\n🌵 <strong>Aloe Vera</strong>: hidratación intensa y cicatrizante natural.\n🌿 <strong>Chía</strong>: omega-3 que nutre profundamente.\n🌾 <strong>Avena</strong>: nutre y calma al mismo tiempo.\n\n¿Hacemos el cuestionario para afinar la recomendación?"],
+        "piel grasa":       ["¡Para piel grasa tengo dos campeones! ✨\n\n⬛ <strong>Carbón Activado</strong>: absorbe el exceso de grasa y limpia los poros.\n🥒 <strong>Pepino</strong>: refresca y regula el sebo sin resecar.\n\n¿Te hago el cuestionario completo para una recomendación más precisa?"],
+        "piel sensible":    ["¡Para piel sensible hay que ir con calma y los mejores ingredientes! 🌸\n\n🌼 <strong>Manzanilla</strong>: el más suave de todos, perfecto incluso para bebés.\n🌵 <strong>Aloe Vera</strong>: calma irritaciones al instante.\n🌾 <strong>Avena</strong>: antiinflamatorio natural.\n\n¿Quieres el cuestionario completo?"],
+        "piel mixta":       ["¡La piel mixta necesita equilibrio! ⚖️\n\n🍃 <strong>Hierbas Medicinales</strong>: equilibra las zonas grasas y secas.\n🌿 <strong>Avena</strong>: nutre sin obstruir los poros.\n\n¿Hacemos el cuestionario para darte la mejor recomendación?"],
+        "celulitis":        ["☕ ¡El Jabón de Café es tu mejor aliado! La cafeína estimula la circulación y ayuda a reducir la apariencia de la celulitis. ¡Resultados desde las primeras semanas! ¿Quieres saber más?"],
+        "bebes":            ["🌼 Para bebés y pieles muy delicadas, el <strong>Jabón de Manzanilla</strong> es perfecto. Es suave, antiinflamatorio y libre de ingredientes agresivos. ¡Mamás y bebés lo aman!"],
+        "regalo":           ["¡Qué detalle tan bonito! 🎁 Para regalos, los más populares son:\n\n🌸 <strong>Flores Secas</strong>: hermoso visualmente, aroma relajante.\n🌼 <strong>Manzanilla</strong>: universal, para cualquier tipo de piel.\n🌵 <strong>Aloe Vera</strong>: un clásico que nunca falla.\n\n¿Para quién es el regalo? ¡Te ayudo a elegir mejor!"],
+        "eres real":        ["¡Soy tan real como los ingredientes naturales de nuestros jabones! 🤖💚 Soy un bot, sí, pero con mucho amor programado. ¿En qué te puedo ayudar?"],
+        "eres humano":      ["¡No! 😄 Soy <strong>Bubble Bot</strong>, un asistente virtual. Pero te prometo que mis recomendaciones son tan buenas como las de un experto humano. ¿Me dejas demostrártelo?"],
+        "bonito":           respuestasElogios,
+        "lindo":            respuestasElogios,
+        "bueno":            respuestasElogios,
+        "genial":           ["¡Gracias! 🌟 Hago lo que puedo para ser útil. ¿Seguimos buscando tu jabón perfecto?"],
+        "te quiero":        ["¡Aww! 🥹 Yo también te quiero, aunque sea virtualmente. Ahora sí, ¡a encontrar tu jabón ideal! 💚"],
+        "cansado":          ["¡Ay! 😴 El agotamiento también afecta la piel. Un buen ritual de baño con jabón natural puede relajarte mucho. ¿Te ayudo a encontrar el indicado?"],
+        "estres":           ["El estrés se nota en la piel: granitos, opacidad, resequedad... 😟 Pero tenemos jabones con ingredientes que ayudan a calmar. ¿Quieres una recomendación especial?"],
+        "no se":            ["¡Tranquilo/a! Para eso estoy yo 😊 Con el cuestionario te guío paso a paso. ¿Empezamos?"],
+        "no entiendo":      ["No hay problema, con calma 🌿 ¿Qué parte no quedó clara? Cuéntame y te explico mejor."],
+        "que recomiendas":  ["¡Mi recomendación favorita es hacer el cuestionario! 🎯 Son solo 5 preguntas y te doy los 3 jabones perfectos para tu piel. ¿Lo hacemos?"],
+        "tengo":            ["Cuéntame más 👂 ¿Qué problema tiene tu piel? Puede que tenga el jabón perfecto para ti."],
+        "problema":         ["¡Cuéntame! 👂 Soy todo oídos. ¿Qué le pasa a tu piel? Seguro que tengo algo que te puede ayudar 🌿"]
     },
     desconocido: [
-        "Hmm, no tengo esa información ahora mismo 🤔 Pero puedo ayudarte a encontrar el jabón ideal para tu piel. ¿Te animas?",
-        "No estoy seguro de eso, pero soy todo un experto en jabones artesanales 🧼 ¿Quieres que te recomiende uno?",
-        "Interesante pregunta 😊 No sé responderla, pero sí puedo ayudarte a cuidar tu piel. ¿Empezamos?"
+        "Hmm, eso sí me agarró off guard 🤔 No tengo esa info, pero sí soy experto en jabones artesanales. ¿Te ayudo a encontrar el tuyo?",
+        "¡Interesante! 😮 Eso escapa un poco de mis conocimientos jaboneros... Pero puedo ayudarte a cuidar tu piel. ¿Empezamos?",
+        "No sé mucho de eso 😅 ¡Pero de jabones naturales sí que sé bastante! ¿Quieres que te recomiende uno?",
+        "Mmm, esa pregunta me supera un poco 🌊 Soy más fuerte con temas de piel y jabones. ¿Me dejas ayudarte con eso?",
+        "¡Uy! Eso sí que no lo tengo en mi base de datos 🤷 Pero lo que sí tengo son los mejores jabones naturales de Pasto. ¿Vemos cuál es para ti?"
     ]
 };
 
@@ -109,10 +237,41 @@ const respuestasBot = {
 // ========================================
 let estado = {
     nombre: '',
-    paso: 'bienvenida',   // bienvenida | listo | cuestionario
+    paso: 'bienvenida',
     respuestas: {},
-    indicePregunta: 0
+    indicePregunta: 0,
+    groseriasCount: 0,
+    ultimaPreguntaIdx: -1
 };
+
+// ========================================
+// HELPERS
+// ========================================
+function aleatorio(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function contieneGroseria(texto) {
+    const lower = texto.toLowerCase();
+    return groseriasKeywords.some(g => lower.includes(g));
+}
+
+function detectarEmocion(texto) {
+    const lower = texto.toLowerCase();
+    if (lower.includes('frustrad') || lower.includes('molest') || lower.includes('enojad') || lower.includes('hartad')) return 'frustrado';
+    if (lower.includes('triste') || lower.includes('deprimid') || lower.includes('llorand')) return 'triste';
+    if (lower.includes('feliz') || lower.includes('contento') || lower.includes('alegre') || lower.includes('emocionad')) return 'feliz';
+    return null;
+}
+
+function reaccionEmocional(emocion) {
+    const mapa = {
+        frustrado: "Oye, noto que estás un poco frustrado/a 😟 Respira profundo... y cuéntame qué pasa, ¿en qué te ayudo?",
+        triste: "¡Ay! 💙 Lo siento. A veces un buen baño con un jabón especial ayuda a levantar el ánimo. ¿Te recomiendo algo relajante?",
+        feliz: "¡Me contagias esa energía! 🌟 ¡Eso es! ¿Ahora sí buscamos tu jabón perfecto?"
+    };
+    return mapa[emocion];
+}
 
 // ========================================
 // INIT
@@ -157,50 +316,224 @@ function enviarMensaje() {
 function procesarMensaje(texto) {
     const lower = texto.toLowerCase().trim();
 
-    // PASO 1: Obtener nombre
+    // ---- Detección de groserías ----
+    if (contieneGroseria(lower)) {
+        estado.groseriasCount++;
+        mostrarIndicador();
+        setTimeout(() => {
+            ocultarIndicador();
+            if (estado.groseriasCount >= 3) {
+                agregarMensajeBot("Bueno bueno... 😅 Ya van varias. Entiendo que algo te frustró, pero sigamos con buena energía ¿sí? 🌿 ¿En qué te ayudo?");
+            } else {
+                agregarMensajeBot(aleatorio(respuestasGroserias));
+            }
+            setTimeout(() => {
+                mostrarRespuestasRapidas([
+                    { texto: "Recomiéndame un jabón 🌿", valor: "iniciar" },
+                    { texto: "Ver productos 🧼",          valor: "ver_productos" },
+                    { texto: "Tengo una pregunta 💬",     valor: "pregunta" }
+                ]);
+            }, 600);
+        }, 900);
+        return;
+    }
+
+    // ---- Detección de emoción ----
+    const emocion = detectarEmocion(lower);
+    if (emocion && estado.paso !== 'cuestionario') {
+        const resp = reaccionEmocional(emocion);
+        if (resp) {
+            mostrarIndicador();
+            setTimeout(() => {
+                ocultarIndicador();
+                agregarMensajeBot(resp);
+                setTimeout(() => {
+                    mostrarRespuestasRapidas([
+                        { texto: "Recomiéndame un jabón 🌿", valor: "iniciar" },
+                        { texto: "Ver productos 🧼",          valor: "ver_productos" }
+                    ]);
+                }, 600);
+            }, 900);
+            return;
+        }
+    }
+
+    // ---- PASO 1: Obtener nombre ----
     if (estado.paso === 'bienvenida') {
         estado.nombre = texto.charAt(0).toUpperCase() + texto.slice(1);
         estado.paso = 'listo';
         mostrarIndicador();
         setTimeout(() => {
             ocultarIndicador();
-            agregarMensajeBot(`¡Encantado de conocerte, <strong>${estado.nombre}</strong>! 🌿`);
+            agregarMensajeBot(`¡Qué nombre tan bonito, <strong>${estado.nombre}</strong>! 🌸 Un gusto conocerte.`);
             setTimeout(() => {
-                agregarMensajeBot("Voy a hacerte <strong>5 preguntas rápidas</strong> para encontrar el jabón artesanal perfecto para ti. ¿Empezamos?");
+                agregarMensajeBot(`Voy a hacerte <strong>5 preguntas rápidas</strong> para encontrar el jabón artesanal que tu piel está esperando. ¿Listo/a?`);
                 mostrarRespuestasRapidas([
-                    { texto: "¡Sí, empecemos! 🌿",        valor: "iniciar" },
-                    { texto: "Ver todos los jabones 🧼",   valor: "ver_productos" },
-                    { texto: "Tengo una pregunta 💬",       valor: "pregunta" }
+                    { texto: "¡Claro, empecemos! 🌿",       valor: "iniciar" },
+                    { texto: "Ver todos los jabones 🧼",     valor: "ver_productos" },
+                    { texto: "Tengo una pregunta primero 💬", valor: "pregunta" },
+                    { texto: "Cuéntame un chiste 😄",         valor: "chiste_cmd" }
                 ]);
-            }, 800);
+            }, 900);
         }, 1200);
         return;
     }
 
-    // Comandos especiales
-    if (lower.includes('recomiend') || lower.includes('ayuda') && lower.includes('jabon')) {
-        iniciarCuestionario(); return;
-    }
-    if (lower.includes('ver producto') || lower.includes('todos los jabones')) {
-        window.location.href = 'productos.html'; return;
-    }
-    if (lower.includes('de nuevo') || lower.includes('reiniciar') || lower.includes('otra vez')) {
-        iniciarCuestionario(); return;
+    // ---- INTENCIONES: grupos de frases/sinónimos que activan la misma acción ----
+    const intenciones = [
+        {
+            // Cuestionario / recomendación
+            check: t => t.includes('recomiend') || t.includes('sugerir') || t.includes('sugier')
+                     || t.includes('que jabon me') || t.includes('cual jabon') || t.includes('que jabon usar')
+                     || t.includes('que jabon necesito') || t.includes('busco un jabon') || t.includes('necesito un jabon')
+                     || t.includes('ayudame a elegir') || t.includes('ayuda a elegir') || t.includes('no se cual')
+                     || (t.includes('ayuda') && t.includes('jabon')) || (t.includes('necesito') && t.includes('jabon')),
+            accion: () => iniciarCuestionario()
+        },
+        {
+            // Ver catálogo
+            check: t => t.includes('ver producto') || t.includes('todos los jabones') || t.includes('catalogo')
+                     || t.includes('tienda') || t.includes('ver tienda') || t.includes('mostrar productos'),
+            accion: () => { window.location.href = 'productos.html'; }
+        },
+        {
+            // Reiniciar
+            check: t => t.includes('de nuevo') || t.includes('reiniciar') || t.includes('otra vez')
+                     || t.includes('repetir') || t.includes('volver a empezar') || t.includes('empezar de nuevo'),
+            accion: () => iniciarCuestionario()
+        },
+        {
+            // Chiste / broma
+            check: t => t.includes('chiste') || t.includes('algo gracioso') || t.includes('hazme reir')
+                     || t.includes('broma') || t.includes('cuentame algo gracioso'),
+            accion: () => {
+                mostrarIndicador();
+                setTimeout(() => {
+                    ocultarIndicador();
+                    agregarMensajeBot(aleatorio(chistes));
+                    setTimeout(() => mostrarRespuestasRapidas([
+                        { texto: "¡Otro chiste! 😂",         valor: "chiste_cmd" },
+                        { texto: "Recomiéndame un jabón 🌿", valor: "iniciar" }
+                    ]), 500);
+                }, 700);
+            }
+        },
+        {
+            // Curiosidad / dato / algo interesante
+            check: t => t.includes('curiosidad') || t.includes('sabias que') || t.includes('dato')
+                     || t.includes('algo interesante') || t.includes('cuentame algo') || t.includes('dime algo')
+                     || t.includes('que me cuentas') || t.includes('informacion') || t.includes('aprend')
+                     || t.includes('interesante'),
+            accion: () => {
+                mostrarIndicador();
+                setTimeout(() => {
+                    ocultarIndicador();
+                    agregarMensajeBot(aleatorio(curiosidades));
+                    setTimeout(() => mostrarRespuestasRapidas([
+                        { texto: "Otra curiosidad 🔍",        valor: "curiosidad_cmd" },
+                        { texto: "Recomiéndame un jabón 🌿", valor: "iniciar" }
+                    ]), 500);
+                }, 800);
+            }
+        },
+        {
+            // El usuario quiere hacer UNA pregunta (frase corta)
+            check: t => t === 'una pregunta' || t === 'tengo una pregunta' || t === 'quiero preguntar'
+                     || t === 'te pregunto algo' || t === 'una duda' || t === 'tengo una duda'
+                     || t === 'tengo una consulta' || t.includes('puedo preguntar')
+                     || (t.includes('pregunta') && t.length < 25 && !t.includes('que pregunta')),
+            accion: () => {
+                mostrarIndicador();
+                setTimeout(() => {
+                    ocultarIndicador();
+                    agregarMensajeBot(`¡Por supuesto${estado.nombre ? ', <strong>' + estado.nombre + '</strong>' : ''}! 😊 Cuéntame, ¿qué quieres saber? Estoy aquí para ayudarte 👂`);
+                }, 800);
+            }
+        },
+        {
+            // Preguntar la hora / fecha / día
+            check: t => t.includes('que dia') || t.includes('qué día') || t.includes('que hora')
+                     || t.includes('que fecha') || t.includes('dia es') || t.includes('hoy es'),
+            accion: () => {
+                const ahora = new Date();
+                const dia = ahora.toLocaleDateString('es-CO', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+                mostrarIndicador();
+                setTimeout(() => {
+                    ocultarIndicador();
+                    agregarMensajeBot(`¡Hoy es <strong>${dia}</strong>! 📅 Aunque para la hora exacta mira tu dispositivo 😄 ¿En qué más te ayudo?`);
+                }, 700);
+            }
+        },
+        {
+            // Quién creó el bot
+            check: t => t.includes('quien te hizo') || t.includes('quien te creo') || t.includes('quien te programo')
+                     || t.includes('como fuiste creado') || t.includes('quien te diseno'),
+            accion: () => {
+                mostrarIndicador();
+                setTimeout(() => {
+                    ocultarIndicador();
+                    agregarMensajeBot(`¡Fui creado por el equipo de <strong>BioBubble</strong> con mucho cariño! 💚 Soy Bubble Bot y mi única misión es ayudarte a encontrar el jabón perfecto para tu piel 🫧`);
+                }, 800);
+            }
+        },
+        {
+            // Cuántos productos
+            check: t => t.includes('cuantos producto') || t.includes('cuántos producto') || t.includes('cuantos jabones') || t.includes('cuántos jabones'),
+            accion: () => {
+                mostrarIndicador();
+                setTimeout(() => {
+                    ocultarIndicador();
+                    agregarMensajeBot(`¡Tenemos <strong>${productos.length} jabones artesanales</strong> en nuestra colección! 🧼 Cada uno hecho con ingredientes 100% naturales. ¿Quieres que te recomiende el ideal para ti?`);
+                    setTimeout(() => mostrarRespuestasRapidas([
+                        { texto: "¡Sí, recomiéndame! 🌿",     valor: "iniciar" },
+                        { texto: "Ver todos los productos 🧼", valor: "ver_productos" }
+                    ]), 500);
+                }, 800);
+            }
+        },
+        {
+            // Naturales / orgánicos / veganos / sin químicos
+            check: t => t.includes('organic') || t.includes('vegan') || t.includes('sin quimic') || t.includes('sin conserv') || (t.includes('artesanal') && t.includes('son')),
+            accion: () => {
+                mostrarIndicador();
+                setTimeout(() => {
+                    ocultarIndicador();
+                    agregarMensajeBot(`¡Sí! 🌱 Todos nuestros jabones son:
+
+✅ <strong>Artesanales</strong>: hechos a mano en Pasto
+✅ <strong>100% naturales</strong>: sin parabenos ni sulfatos agresivos
+✅ <strong>Sin conservantes artificiales</strong>
+✅ <strong>Amigables con la piel</strong>
+
+¡Tu piel lo nota desde el primer uso! 💚`);
+                }, 800);
+            }
+        }
+    ];
+
+    // Probar cada intención
+    for (const intencion of intenciones) {
+        if (intencion.check(lower)) {
+            intencion.accion();
+            return;
+        }
     }
 
-    // Buscar respuesta en diccionario
+    // ---- Buscar en diccionario de claves ----
     for (let clave in respuestasBot.comunes) {
         if (lower.includes(clave)) {
             mostrarIndicador();
             setTimeout(() => {
                 ocultarIndicador();
                 const opciones = respuestasBot.comunes[clave];
-                agregarMensajeBot(opciones[Math.floor(Math.random() * opciones.length)]);
-                if (lower.includes('recomiend') || lower.includes('tipo de piel') || lower.includes('sirve')) {
+                agregarMensajeBot(aleatorio(opciones));
+
+                const tieneContextoPiel = ['acne','piel seca','piel grasa','piel sensible','piel mixta','celulitis','bebes','regalo','que recomiendas','para que sirve','que jabones'].some(c => lower.includes(c));
+                if (tieneContextoPiel || lower.includes('tipo de piel') || lower.includes('sirve')) {
                     setTimeout(() => {
                         mostrarRespuestasRapidas([
-                            { texto: "Recomiéndame un jabón 🌿", valor: "iniciar" },
-                            { texto: "Ver productos 🧼",          valor: "ver_productos" }
+                            { texto: "¡Quiero el cuestionario! 🎯", valor: "iniciar" },
+                            { texto: "Ver todos los productos 🧼",   valor: "ver_productos" }
                         ]);
                     }, 500);
                 }
@@ -209,16 +542,16 @@ function procesarMensaje(texto) {
         }
     }
 
-    // Respuesta desconocida
+    // ---- Respuesta desconocida ----
     mostrarIndicador();
     setTimeout(() => {
         ocultarIndicador();
-        const idx = Math.floor(Math.random() * respuestasBot.desconocido.length);
-        agregarMensajeBot(respuestasBot.desconocido[idx]);
+        agregarMensajeBot(aleatorio(respuestasBot.desconocido));
         setTimeout(() => {
             mostrarRespuestasRapidas([
                 { texto: "Recomiéndame un jabón 🌿", valor: "iniciar" },
-                { texto: "Ver productos 🧼",          valor: "ver_productos" }
+                { texto: "Ver productos 🧼",          valor: "ver_productos" },
+                { texto: "Cuéntame un chiste 😄",     valor: "chiste_cmd" }
             ]);
         }, 500);
     }, 900);
@@ -231,8 +564,9 @@ function iniciarCuestionario() {
     estado.indicePregunta = 0;
     estado.respuestas = {};
     estado.paso = 'cuestionario';
-    agregarMensajeBot(`¡Perfecto, ${estado.nombre}! Te haré <strong>5 preguntas rápidas</strong>:`);
-    setTimeout(() => hacerPregunta(0), 700);
+    const motiv = aleatorio(motivacionCuestionario);
+    agregarMensajeBot(`¡Perfecto${estado.nombre ? ', <strong>' + estado.nombre + '</strong>' : ''}! ${motiv}`);
+    setTimeout(() => hacerPregunta(0), 800);
 }
 
 function hacerPregunta(idx) {
@@ -240,23 +574,34 @@ function hacerPregunta(idx) {
         generarRecomendaciones(); return;
     }
     const pregunta = preguntas[idx];
-    agregarMensajeBot(pregunta.pregunta);
-    setTimeout(() => mostrarRespuestasRapidas(
-        pregunta.opciones.map(o => ({ texto: o.texto, valor: o.valor, esPregunta: true }))
-    ), 400);
+    // Reacción de transición si no es la primera
+    if (idx > 0) {
+        const reaccion = aleatorio(reaccionesCuestionario);
+        agregarMensajeBot(reaccion);
+        setTimeout(() => {
+            agregarMensajeBot(`<strong>Pregunta ${idx + 1} de ${preguntas.length}:</strong> ${pregunta.pregunta}`);
+            setTimeout(() => mostrarRespuestasRapidas(
+                pregunta.opciones.map(o => ({ texto: o.texto, valor: o.valor, esPregunta: true }))
+            ), 400);
+        }, 600);
+    } else {
+        agregarMensajeBot(`<strong>Pregunta ${idx + 1} de ${preguntas.length}:</strong> ${pregunta.pregunta}`);
+        setTimeout(() => mostrarRespuestasRapidas(
+            pregunta.opciones.map(o => ({ texto: o.texto, valor: o.valor, esPregunta: true }))
+        ), 400);
+    }
 }
 
 // ========================================
 // GENERAR RECOMENDACIONES
 // ========================================
 function generarRecomendaciones() {
-    agregarMensajeBot("Analizando tu perfil de piel... 🔍");
+    agregarMensajeBot(`${aleatorio(reaccionesCuestionario)} ¡Analizando tu perfil de piel... 🔍`);
     mostrarIndicador();
 
     setTimeout(() => {
         ocultarIndicador();
 
-        // Calcular score para cada producto
         const scores = productos.map(producto => {
             let score = 0;
             for (let id in estado.respuestas) {
@@ -276,7 +621,13 @@ function generarRecomendaciones() {
         const top3 = scores.slice(0, 3);
         const maxScore = top3[0].score;
 
-        agregarMensajeBot(`¡Listo, <strong>${estado.nombre}</strong>! 🎯 Basándome en tu tipo de piel, estos son los <strong>3 jabones perfectos</strong> para ti:`);
+        const frasesFin = [
+            `¡Listo, <strong>${estado.nombre || 'amigo/a'}</strong>! 🎯 Después de analizar tu perfil, encontré los <strong>3 jabones hechos para ti</strong>:`,
+            `¡Eureka! 🌟 Tu piel me contó todo lo que necesita. Aquí van tus <strong>3 jabones perfectos</strong>:`,
+            `¡Ya tengo tu resultado! 💚 Basándome en tus respuestas, estos son los <strong>jabones que tu piel va a amar</strong>:`
+        ];
+
+        agregarMensajeBot(aleatorio(frasesFin));
 
         setTimeout(() => {
             top3.forEach((item, i) => {
@@ -288,15 +639,21 @@ function generarRecomendaciones() {
             });
 
             setTimeout(() => {
-                agregarMensajeBot("¿Quieres saber más sobre alguno de estos jabones? 😊");
+                const mensajesFin = [
+                    "¿Qué te parecen? Si quieres saber más sobre alguno o tienes dudas, ¡pregúntame! 😊",
+                    "¿Alguno te llamó la atención? ¡Todos son naturales y artesanales! 🌿",
+                    "¡Tu piel lo va a notar desde el primer uso! 💚 ¿Alguna pregunta sobre los jabones?"
+                ];
+                agregarMensajeBot(aleatorio(mensajesFin));
                 mostrarRespuestasRapidas([
                     { texto: "Ver todos los productos 🧼", valor: "ver_productos" },
                     { texto: "Repetir cuestionario 🔄",    valor: "iniciar" },
-                    { texto: "Tengo otra pregunta 💬",      valor: "pregunta" }
+                    { texto: "Tengo otra pregunta 💬",      valor: "pregunta" },
+                    { texto: "Cuéntame un chiste 😄",       valor: "chiste_cmd" }
                 ]);
             }, top3.length * 900 + 1000);
         }, 800);
-    }, 2000);
+    }, 2200);
 }
 
 // ========================================
@@ -391,7 +748,31 @@ function manejarRespuestaRapida(opcion) {
         } else if (opcion.valor === 'ver_productos') {
             window.location.href = 'productos.html';
         } else if (opcion.valor === 'pregunta') {
-            agregarMensajeBot("¡Claro! Escribe tu pregunta y con gusto te ayudo 😊");
+            agregarMensajeBot(`¡Claro, ${estado.nombre ? estado.nombre : 'dime'}! Escribe tu pregunta y con gusto te respondo 😊`);
+        } else if (opcion.valor === 'chiste_cmd') {
+            mostrarIndicador();
+            setTimeout(() => {
+                ocultarIndicador();
+                agregarMensajeBot(aleatorio(chistes));
+                setTimeout(() => {
+                    mostrarRespuestasRapidas([
+                        { texto: "¡Otro chiste! 😂",              valor: "chiste_cmd" },
+                        { texto: "Recomiéndame un jabón 🌿",     valor: "iniciar" }
+                    ]);
+                }, 500);
+            }, 700);
+        } else if (opcion.valor === 'curiosidad_cmd') {
+            mostrarIndicador();
+            setTimeout(() => {
+                ocultarIndicador();
+                agregarMensajeBot(aleatorio(curiosidades));
+                setTimeout(() => {
+                    mostrarRespuestasRapidas([
+                        { texto: "Otra curiosidad 🔍",           valor: "curiosidad_cmd" },
+                        { texto: "Recomiéndame un jabón 🌿",     valor: "iniciar" }
+                    ]);
+                }, 500);
+            }, 700);
         } else if (opcion.esPregunta && estado.paso === 'cuestionario') {
             const preguntaActual = preguntas[estado.indicePregunta];
             estado.respuestas[preguntaActual.id] = opcion.valor;
@@ -436,7 +817,7 @@ function ocultarIndicador() {
 function limpiarChat() {
     document.getElementById('chatMessages').innerHTML = '';
     document.getElementById('quickReplies').innerHTML = '';
-    estado = { nombre: '', paso: 'bienvenida', respuestas: {}, indicePregunta: 0 };
+    estado = { nombre: '', paso: 'bienvenida', respuestas: {}, indicePregunta: 0, groseriasCount: 0 };
     initChat();
 }
 
