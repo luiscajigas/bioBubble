@@ -104,29 +104,57 @@ nav a:hover::after { width: 100%; }
 }
 
 /* ========================================
-   HERO
+   HERO PRODUCTOS CON IMAGEN
    ======================================== */
 .hero-productos {
-    height: 400px;
+    position: relative;
+    height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     background: linear-gradient(135deg, #D4E9E7 0%, #E8DFD0 100%);
 }
 
-.hero-content {
-    text-align: center;
-    padding: 3rem;
-    border: 3px solid var(--white);
-    background: rgba(255,255,255,0.3);
-    backdrop-filter: blur(10px);
+/* Imagen */
+.hero-productos .hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
 }
 
-.hero-content h1 {
+/* Overlay más suave */
+.hero-productos .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25); /* solo 25% oscuro */
+    z-index: 2;
+}
+
+/* Contenido */
+.hero-productos .hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero-productos h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem;
-    font-weight: 300;
-    letter-spacing: 3px;
+    font-size: 3.5rem;
+    color: white;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.hero-productos p {
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 1rem;
 }
 
 /* ========================================

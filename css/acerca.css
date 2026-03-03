@@ -117,7 +117,7 @@ nav a:hover::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #D4E9E7 0%, #E8DFD0 100%);
+    background: linear-gradient(135deg, #D4E9E7 0%, #D4E9E7 100%);
     overflow: hidden;
 }
 
@@ -206,7 +206,7 @@ nav a:hover::after {
    ======================================== */
 .valores-section {
     padding: 6rem 5%;
-    background-color: var(--cream);
+    background-color: #d4e9e7;
 }
 
 .section-title {
@@ -228,12 +228,12 @@ nav a:hover::after {
 }
 
 .valor-card {
-    background-color: var(--white);
+    background-color: var(--pink);
     padding: 2.5rem;
     border-radius: 12px;
     text-align: center;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 15px rgba(1, 111, 102, 0.372);
 }
 
 .valor-card:hover {
@@ -257,7 +257,7 @@ nav a:hover::after {
 .valor-card p {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: #666;
+    color: #000000;
 }
 
 /* ========================================
@@ -279,7 +279,7 @@ nav a:hover::after {
 .fundador-card {
     text-align: center;
     padding: 2rem;
-    background-color: var(--cream);
+    background-color: #d4e9e7;
     border-radius: 12px;
     transition: all 0.3s ease;
 }
@@ -338,7 +338,7 @@ nav a:hover::after {
    ======================================== */
 .proceso-section {
     padding: 6rem 5%;
-    background-color: var(--cream);
+    background-color: #d4e9e7;
 }
 
 .proceso-timeline {

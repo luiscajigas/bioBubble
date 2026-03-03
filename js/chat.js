@@ -10,7 +10,15 @@ const productos = [
     { id: 6, nombre: "HIERBAS MEDICINALES", categoria: "terapeutico", color: "color-mint",    descripcion: "Jabón con mezcla de hierbas medicinales que calman y equilibran la piel. Propiedades antibacterianas.",                 image: "images/hierbas-medicinales.jpg",  keywords: ["medicinal", "calmante", "antibacterial", "natural", "mixta"] },
     { id: 7, nombre: "FLORES SECAS",        categoria: "aromatico",   color: "color-purple",  descripcion: "Jabón aromático decorado con flores secas naturales. Suave fragancia que relaja tu ritual de cuidado.",                 image: "images/flores-secas.jpg",         keywords: ["aromatico", "relajante", "suave", "normal", "natural"] },
     { id: 8, nombre: "CAFÉ",                categoria: "exfoliante",  color: "color-brown",   descripcion: "Jabón exfoliante de café que remueve células muertas y estimula la circulación. Reduce la celulitis.",                  image: "images/cafe.jpg",                 keywords: ["exfoliante", "estimulante", "circulacion", "cuerpo", "normal"] },
-    { id: 9, nombre: "MANZANILLA",          categoria: "calmante",    color: "color-yellow",  descripcion: "Jabón de manzanilla con propiedades calmantes y antiinflamatorias. Ideal para pieles sensibles y bebés.",               image: "images/manzanilla.jpg",           keywords: ["calmante", "suave", "sensible", "antiinflamatorio", "bebe"] }
+    { id: 9, nombre: "MANZANILLA",          categoria: "calmante",    color: "color-yellow",  descripcion: "Jabón de manzanilla con propiedades calmantes y antiinflamatorias. Ideal para pieles sensibles y bebés.",               image: "images/manzanilla.jpg",           keywords: ["calmante", "antiinflamatorio", "sensible", "bebe", "natural"] },
+    { id: 10, nombre: "NARANJA",            categoria: "aromatico",   color: "color-orange",  descripcion: "Jabón revitalizante de naranja con propiedades antioxidantes y energizantes. Ideal para pieles opacas y mixtas. Ayuda a iluminar y refrescar la piel.",                                         image: "images/naranja.jpg",              keywords: ["aromatico", "revitalizante", "antioxidante", "iluminador", "mixta"] },
+    { id: 11, nombre: "EUCALIPTO",          categoria: "purificante", color: "color-green",   descripcion: "Jabón purificante de eucalipto con propiedades refrescantes y antibacteriales. Ideal para piel grasa y con tendencia al acné. Ayuda a limpiar profundamente y equilibrar la piel.",                     image: "images/eucalipto.jpg",            keywords: ["purificante", "refrescante", "antibacterial", "grasa", "acne"] },
+    { id: 12, nombre: "CALENDULA",          categoria: "calmante",    color: "color-orange",  descripcion: "Jabón suave de caléndula con propiedades calmantes y regeneradoras. Ideal para piel sensible y delicada. Ayuda a aliviar irritaciones y suavizar la piel.",                                     image: "images/calendula.jpg" ,           keywords: ["calmante", "regenerador", "sensible", "delicada"] },
+    { id: 13, nombre: "ACEITE DE COCO",     categoria: "hidratante",  color: "color-vanilla", descripcion: "Jabón hidratante de glicerina vegetal con propiedades humectantes y suavizantes. Ideal para todo tipo de piel. Ayuda a mantener la piel flexible y protegida.",                          image: "images/aceite-coco.jpg" ,          keywords: ["hidratante", "humectante", "suavizante","todo tipo de piel"] },
+    { id: 14, nombre: "GLICERINA VEGETAL",  categoria: "nutritivo",   color: "color-green",   descripcion: "Jabón nutritivo de aceite de coco con propiedades hidratantes y limpiadoras. Ideal para piel seca y normal. Ayuda a suavizar y proteger la piel.",                            image:"images/glicerina-vegetal.jpg" ,     keywords : ["nutritivo","hidratante","limpia","normal","seca"] },
+    { id: 15, nombre:"ACEITE DE ALMENDRAS" ,categoria:"nutritivo" ,   color: "color-brown" ,  descripcion:"Jabón nutritivo de aceite de almendras con propiedades suavizantes y reparadoras. Ideal para piel seca y sensible. Ayuda a mejorar la elasticidad y dar luminosidad.",                           image:"images/almendras.jpg" ,             keywords : ["nutritivo","suavizante","reparador","sensible","seca"] },
+    { id : 16, nombre:"AZUFRE" ,            categoria:"purificante" , color: "color-yellow" , descripcion:"Jabón purificante de azufre con propiedades antibacteriales y reguladoras. Ideal para piel grasa y con acné. Ayuda a controlar el exceso de grasa y reducir imperfecciones.",                                    image:"images/azufre.jpg" ,               keywords : ["purificante","antibacterial","regulador","grasa","acne"] },
+    { id: 17, nombre: "NEUTRO",             categoria: "equilibrante",color: "color-white",   descripcion: "Jabón neutro de limpieza suave con fórmula equilibrada y sin fragancias fuertes. Ideal para piel sensible y uso diario. Ayuda a limpiar sin alterar el pH natural de la piel.",              image: "images/neutro.jpg",           keywords: ["calmante", "suave", "sensible", "antiinflamatorio", "bebe"] }
 ];
 
 // ========================================
@@ -56,15 +64,37 @@ const preguntas = [
             { texto: "💪 No, es resistente",    valor: "resistente",    keywords: ["exfoliante", "purificante", "detox"] }
         ]
     },
-    {
-        id: 'uso',
-        pregunta: "¿Para quién es este jabón especial? 🎁",
-        opciones: [
-            { texto: "👤 Para mí (adulto)",     valor: "adulto",    keywords: ["normal", "hidratante", "exfoliante"] },
-            { texto: "👶 Para un bebé o niño",  valor: "bebe",      keywords: ["bebe", "suave", "calmante", "sensible"] },
-            { texto: "👨‍👩‍👧 Para toda la familia", valor: "familia",   keywords: ["suave", "natural", "calmante"] }
-        ]
-    }
+   {
+    id: 'edad',
+    pregunta: "¿En qué rango de edad estás? 🎂",
+    opciones: [
+        { 
+            texto: "🧑 Entre 18 – 24 años", 
+            valor: "18_24", 
+            keywords: ["acne", "grasa", "purificante", "exfoliante", "regulador"] 
+        },
+        { 
+            texto: "🧑 Entre 25 – 34 años", 
+            valor: "25_34", 
+            keywords: ["hidratante", "equilibrante", "natural", "antioxidante"] 
+        },
+        { 
+            texto: "🧑 Entre 35 – 44 años", 
+            valor: "35_44", 
+            keywords: ["nutritivo", "hidratante", "elasticidad", "regenerador"] 
+        },
+        { 
+            texto: "🧑 Entre 45 – 59 años", 
+            valor: "45_59", 
+            keywords: ["nutritivo", "regenerador", "suavizante", "seca"] 
+        },
+        { 
+            texto: "🧓 60 años o más", 
+            valor: "60_plus", 
+            keywords: ["suave", "calmante", "hidratante", "sensible"] 
+        }
+    ]
+}
 ];
 
 // ========================================
